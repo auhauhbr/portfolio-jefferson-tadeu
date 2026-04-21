@@ -1,36 +1,165 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Template
+
+A clean, minimal, and professional developer portfolio template built with Next.js, Tailwind CSS v4, and Framer Motion.
+
+> Free template — customize it in minutes by editing a single config file.
+
+---
+
+## Preview
+
+![Portfolio Preview](public/preview.png)
+
+---
+
+## Features
+
+- **One config file** — edit `src/config/portfolio.ts` to customize everything
+- **4 pages** — Home, About, Projects, Contact
+- **Dark mode** — full light/dark toggle with `next-themes`
+- **Smooth animations** — Framer Motion fade-in, stagger, and scroll animations
+- **Animated tech stack strip** — infinite CSS scroll with hover pause
+- **Project filter** — filter projects by category (Web, Mobile, UI, Open Source)
+- **Responsive** — mobile-first, works on all screen sizes
+- **Sticky navbar** — with mobile hamburger menu
+- **Contact form** — with success/loading states (plug in your own backend)
+- **TypeScript strict** — fully typed throughout
+- **Geist font** — clean, modern Vercel typeface
+
+---
+
+## Tech Stack
+
+| Tool | Purpose |
+|------|---------|
+| [Next.js 16](https://nextjs.org) | Framework (App Router) |
+| [Tailwind CSS v4](https://tailwindcss.com) | Styling |
+| [Framer Motion](https://www.framer.com/motion/) | Animations |
+| [Lucide React](https://lucide.dev) | Icons |
+| [next-themes](https://github.com/pacocoursey/next-themes) | Dark mode |
+| [Radix UI](https://radix-ui.com) | Accessible primitives |
+| [TypeScript](https://typescriptlang.org) | Type safety |
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js `>=20.9.0`
+- npm / yarn / pnpm
+
+### Installation
 
 ```bash
+# Clone the repo
+git clone https://github.com/yourusername/portfolio-template.git
+cd portfolio-template
+
+# Install dependencies
+npm install
+
+# Start dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see your portfolio.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Customization
 
-## Learn More
+**Everything you need to customize lives in one file:**
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/config/portfolio.ts
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Edit this file to set your:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Name, role, location, bio
+- Avatar image path
+- Email, GitHub, LinkedIn, Twitter, Ko-fi links
+- Skills list
+- Tech stack strip items
+- Projects (title, description, image, tech tags, GitHub + live links, category, featured flag)
+- Work experience
+- Education
+
+### Adding your avatar
+
+Place your photo at `public/avatar.jpg`. The components use this path by default.
+
+### Adding project images
+
+Place images in `public/projects/`. Reference them in the config:
+
+```ts
+image: "/projects/my-project.jpg"
+```
+
+### Connecting the contact form
+
+Open `src/components/contact/ContactForm.tsx` and replace the simulated delay with your preferred service:
+
+- [Resend](https://resend.com) — email API
+- [Formspree](https://formspree.io) — hosted forms
+- [EmailJS](https://emailjs.com) — client-side email
+
+---
+
+## Folder Structure
+
+```
+├── app/
+│   ├── page.tsx              ← Home
+│   ├── about/page.tsx        ← About
+│   ├── projects/page.tsx     ← Projects
+│   ├── contact/page.tsx      ← Contact
+│   ├── layout.tsx            ← Root layout + ThemeProvider
+│   └── globals.css           ← Global styles + CSS variables
+├── src/
+│   ├── config/
+│   │   └── portfolio.ts      ← ✏️ EDIT THIS FILE
+│   ├── components/
+│   │   ├── layout/           ← Navbar, Footer, ThemeProvider
+│   │   ├── home/             ← Hero, TechStack, FeaturedProjects
+│   │   ├── about/            ← Bio, Skills, Experience, Education
+│   │   ├── projects/         ← ProjectCard, FilterBar, ProjectsClient
+│   │   ├── contact/          ← ContactForm
+│   │   └── ui/               ← Button, Badge, Card, Input, Textarea, Separator
+│   └── lib/
+│       └── utils.ts          ← cn() helper
+└── public/
+    ├── avatar.jpg            ← Your photo (add this)
+    └── projects/             ← Project screenshots (add these)
+```
+
+---
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The easiest way to deploy:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Push your repo to GitHub
+2. Go to [vercel.com/new](https://vercel.com/new)
+3. Import your repository
+4. Click **Deploy**
+
+That's it — Vercel will automatically detect Next.js and deploy with optimal settings.
+
+> **Tip:** Remove `unoptimized: true` from `next.config.ts` before deploying to Vercel to enable automatic image optimization.
+
+---
+
+## Support
+
+If this template helped you land a job or saved you time, consider buying me a coffee:
+
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-FF5E5B?logo=ko-fi)](https://ko-fi.com/yourusername)
+
+---
+
+## License
+
+MIT — free to use for personal and commercial projects.
