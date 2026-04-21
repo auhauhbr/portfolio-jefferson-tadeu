@@ -152,14 +152,6 @@ That's it — Vercel will automatically detect Next.js and deploy with optimal s
 
 ---
 
-## Support
-
-If this template helped you land a job or saved you time, consider buying me a coffee:
-
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-FF5E5B?logo=ko-fi)](https://ko-fi.com/yourusername)
-
----
-
 ## License
 
 MIT — free to use for personal and commercial projects.
