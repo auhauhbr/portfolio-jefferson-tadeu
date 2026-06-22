@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import { BookOpen, ChevronDown, LoaderCircle } from "lucide-react";
 import { cn } from "@/src/lib/utils";
@@ -105,6 +106,7 @@ export function ProjectReadme({
             <article className="github-readme">
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw]}
                 components={{
                   a: ({ href = "", children }) => (
                     <a

@@ -797,6 +797,86 @@ export const portfolio = {
       featured: false,
       status: "Estudo contínuo",
     },
+    {
+      id: 9,
+      title: "Portfólio — Jefferson Tadeu",
+      summary:
+        "Portfólio profissional com projetos, trajetória, certificados e documentação técnica.",
+      description:
+        "Aplicação web responsiva criada para apresentar meu perfil profissional de forma organizada e verificável. O site reúne projetos autorais e acadêmicos, tecnologias, formação, certificados, marcos da trajetória, currículo e canais de contato em uma experiência única.",
+      contribution:
+        "Parti de um template público e reformulei conteúdo, estrutura e experiência para representar meu perfil. Implementei filtros por área e tecnologia, galerias de projetos, detalhes em modal, renderização expansível de READMEs, catálogo de cursos e certificados, trajetória profissional, tema claro e escuro, currículo para download e deploy contínuo na Vercel.",
+      images: [
+        {
+          src: "/images/projects/portfolio/home.webp",
+          alt: "Página inicial do portfólio de Jefferson Tadeu",
+          caption:
+            "Página inicial com apresentação profissional, currículo, certificados e canais de contato.",
+        },
+        {
+          src: "/images/projects/portfolio/projetos.webp",
+          alt: "Página de projetos com filtros por área e tecnologia",
+          caption:
+            "Catálogo de projetos com filtros combináveis por categoria e tecnologia.",
+        },
+        {
+          src: "/images/projects/portfolio/sobre.webp",
+          alt: "Página Sobre com habilidades e trajetória",
+          caption:
+            "Perfil, habilidades, formação, conquistas, cursos e certificados organizados em camadas.",
+        },
+        {
+          src: "/images/projects/portfolio/contato.webp",
+          alt: "Página de contato do portfólio",
+          caption:
+            "Canais diretos para oportunidades, colaborações e contato profissional.",
+        },
+      ],
+      tech: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Radix UI",
+        "Lucide React",
+        "React Markdown",
+        "Remark GFM",
+        "next-themes",
+        "Vercel",
+        "Git",
+        "GitHub",
+      ],
+      features: [
+        "Página inicial com projetos selecionados",
+        "Projetos filtrados por área e tecnologia",
+        "Galerias e detalhes completos em modal",
+        "READMEs expansíveis dentro do próprio site",
+        "Trajetória, formação, cursos e certificados",
+        "Currículo para download e contatos diretos",
+        "Tema claro e escuro e layout responsivo",
+        "Deploy contínuo na Vercel",
+      ],
+      architecture: [
+        "Next.js App Router",
+        "Componentes React",
+        "Configuração TypeScript",
+        "Conteúdo e imagens locais",
+        "Deploy na Vercel",
+      ],
+      github: "https://github.com/auhauhbr/portfolio-jefferson-tadeu",
+      live: "https://jeffersontadeu.vercel.app/",
+      readme: {
+        source: "/readmes/portfolio.md",
+        imageBase:
+          "https://raw.githubusercontent.com/auhauhbr/portfolio-jefferson-tadeu/main/",
+        linkBase:
+          "https://github.com/auhauhbr/portfolio-jefferson-tadeu/blob/main/",
+      },
+      category: "Produto Web",
+      featured: false,
+      status: "Publicado",
+    },
   ] satisfies Project[],
 
   education: [
