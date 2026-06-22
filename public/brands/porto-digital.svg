@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 76" role="img" aria-labelledby="title">
+  <title id="title">Porto Digital</title>
+  <rect width="300" height="76" rx="8" fill="#ffffff"/>
+  <g transform="translate(10 12)">
+    <rect width="15" height="15" fill="#ef3e42"/>
+    <rect x="18" width="15" height="15" fill="#111827"/>
+    <rect y="18" width="15" height="15" fill="#111827"/>
+    <rect x="18" y="18" width="15" height="15" fill="#ef3e42"/>
+    <rect y="36" width="15" height="15" fill="#ef3e42"/>
+    <rect x="18" y="36" width="15" height="15" fill="#111827"/>
+  </g>
+  <text x="58" y="34" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">PORTO</text>
+  <text x="58" y="57" fill="#ef3e42" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">DIGITAL</text>
+</svg>

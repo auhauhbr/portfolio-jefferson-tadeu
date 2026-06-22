@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 72" role="img" aria-labelledby="title">
+  <title id="title">Bradesco</title>
+  <g fill="none" stroke="#cc092f" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15 47c10-17 22-27 37-31" stroke-width="6"/>
+    <path d="M29 50c7-11 15-18 26-21" stroke-width="5"/>
+    <path d="M43 53c4-6 8-10 15-12" stroke-width="4"/>
+    <path d="M52 16c8 3 15 8 21 15" stroke-width="5"/>
+  </g>
+  <text x="84" y="47" fill="#cc092f" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700">bradesco</text>
+</svg>
