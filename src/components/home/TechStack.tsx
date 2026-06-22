@@ -1,50 +1,45 @@
-"use client";
-
-import { motion } from "framer-motion";
+import Image from "next/image";
 import { portfolio } from "@/src/config/portfolio";
-import { Separator } from "@/src/components/ui/separator";
 
 export function TechStack() {
-  // Duplicate the items to create a seamless infinite scroll
-  const items = [...portfolio.techStack, ...portfolio.techStack];
+  const technologies = [...portfolio.techStack, ...portfolio.techStack];
 
   return (
-    <section className="py-16 overflow-hidden border-y border-border bg-secondary/30">
-      <div className="mx-auto max-w-6xl px-6 mb-8">
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="text-center text-xs font-semibold uppercase tracking-widest text-muted-foreground"
-        >
-          Technologies I work with
-        </motion.p>
+    <section className="overflow-hidden border-y border-sky-900/70 bg-[#08182c] py-7 text-white">
+      <div className="mx-auto mb-5 max-w-6xl px-6">
+        <p className="text-sm font-medium text-sky-300">
+          Tecnologias utilizadas em projetos e estudadas em cursos
+        </p>
       </div>
 
-      {/* Scrolling strip */}
-      <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
-        <div className="animate-scroll flex gap-8 whitespace-nowrap">
-          {items.map((tech, i) => (
-            <TechItem key={`${tech.name}-${i}`} name={tech.name} />
+      <div className="tech-marquee relative overflow-hidden">
+        <div className="animate-tech-marquee flex w-max items-center gap-4 px-4">
+          {technologies.map((tech, index) => (
+            <div
+              key={`${tech.name}-${index}`}
+              className="flex h-16 shrink-0 items-center gap-3 rounded-xl border border-white/10 bg-white/[0.035] px-4 text-sm font-medium text-slate-200 shadow-sm"
+            >
+              {"icon" in tech && tech.icon ? (
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-white p-1.5">
+                  <Image
+                    src={tech.icon}
+                    alt=""
+                    width={28}
+                    height={28}
+                    className="object-contain"
+                    style={{ width: 28, height: 28 }}
+                  />
+                </span>
+              ) : (
+                <span className="rounded-md bg-sky-400/10 px-2 py-1 font-mono text-[10px] uppercase tracking-wider text-sky-300">
+                  tech
+                </span>
+              )}
+              <span className="whitespace-nowrap">{tech.name}</span>
+            </div>
           ))}
         </div>
       </div>
     </section>
-  );
-}
-
-function TechItem({ name }: { name: string }) {
-  return (
-    <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg border border-border bg-background shadow-sm text-sm font-medium text-muted-foreground hover:text-foreground transition-colors shrink-0">
-      <TechDot />
-      {name}
-    </div>
-  );
-}
-
-function TechDot() {
-  return (
-    <span className="h-1.5 w-1.5 rounded-full bg-foreground/30" />
   );
 }

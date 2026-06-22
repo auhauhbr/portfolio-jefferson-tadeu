@@ -1,82 +1,53 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { Briefcase, MapPin } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight, Award } from "lucide-react";
 import { portfolio } from "@/src/config/portfolio";
-import { Badge } from "@/src/components/ui/badge";
 
 export function Experience() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-16">
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="mb-10"
-      >
-        <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-          Career
-        </p>
-        <h2 className="text-2xl font-bold tracking-tight text-foreground">
-          Work Experience
+    <section className="bg-slate-50 py-20 dark:bg-[#06101e]">
+      <div className="mx-auto max-w-6xl px-6">
+        <p className="section-label">Marcos da jornada</p>
+        <h2 className="section-title text-slate-950 dark:text-white">
+          Aprendizado também acontece em público
         </h2>
-      </motion.div>
-
-      {/* Timeline */}
-      <div className="relative space-y-8">
-        {/* Vertical line */}
-        <div className="absolute left-[19px] top-2 bottom-2 w-px bg-border hidden sm:block" />
-
-        {portfolio.experience.map((exp, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, x: -16 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.5 }}
-            className="flex gap-6"
-          >
-            {/* Dot */}
-            <div className="relative hidden sm:flex shrink-0 flex-col items-center">
-              <div className="mt-1.5 h-4 w-4 rounded-full border-2 border-foreground bg-background" />
-            </div>
-
-            {/* Card */}
-            <div className="flex-1 rounded-xl border border-border bg-card p-6 shadow-sm">
-              <div className="mb-3 flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
-                <div>
-                  <h3 className="font-semibold text-foreground">{exp.role}</h3>
-                  <div className="flex items-center gap-2 mt-0.5">
-                    <Briefcase className="h-3.5 w-3.5 text-muted-foreground" />
-                    <span className="text-sm text-muted-foreground">{exp.company}</span>
-                  </div>
-                </div>
-                <div className="flex flex-col items-start gap-1 sm:items-end mt-1 sm:mt-0">
-                  <span className="text-xs font-medium text-muted-foreground border border-border rounded-full px-2.5 py-0.5">
-                    {exp.period}
-                  </span>
-                  <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                    <MapPin className="h-3 w-3" />
-                    {exp.location}
-                  </div>
-                </div>
+        <div className="mt-10 space-y-6">
+          {portfolio.milestones.map((milestone) => (
+            <article
+              key={milestone.title}
+              className="grid overflow-hidden rounded-2xl border border-slate-200 bg-white md:grid-cols-[.8fr_1.2fr] dark:border-white/10 dark:bg-white/[0.035]"
+            >
+              <div className="relative min-h-64">
+                <Image
+                  src={milestone.image}
+                  alt={milestone.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
-
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                {exp.description}
-              </p>
-
-              <div className="flex flex-wrap gap-1.5">
-                {exp.tech.map((t) => (
-                  <Badge key={t} variant="secondary" className="text-xs">
-                    {t}
-                  </Badge>
-                ))}
+              <div className="p-7 md:p-9">
+                <Award className="h-6 w-6 text-sky-500" />
+                <p className="mt-5 font-mono text-xs text-sky-600 dark:text-sky-300">
+                  {milestone.date}
+                </p>
+                <h3 className="mt-3 text-2xl font-semibold text-slate-950 dark:text-white">
+                  {milestone.title}
+                </h3>
+                <p className="mt-4 leading-8 text-slate-600 dark:text-slate-300">
+                  {milestone.description}
+                </p>
+                <Link
+                  href={milestone.href}
+                  target="_blank"
+                  className="text-link mt-6"
+                >
+                  {milestone.linkLabel} <ArrowUpRight className="h-4 w-4" />
+                </Link>
               </div>
-            </div>
-          </motion.div>
-        ))}
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

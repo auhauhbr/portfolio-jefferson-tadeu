@@ -1,86 +1,91 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { GitBranch, Link2, X, Mail, Coffee } from "lucide-react";
-import { ContactForm } from "@/src/components/contact/ContactForm";
+import {
+  ArrowUpRight,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  MessageCircle,
+} from "lucide-react";
 import { portfolio } from "@/src/config/portfolio";
-import { Separator } from "@/src/components/ui/separator";
 
 export const metadata: Metadata = {
-  title: `Contact — ${portfolio.name}`,
-  description: `Get in touch with ${portfolio.name}.`,
+  title: `Contato — ${portfolio.name}`,
+  description: `Entre em contato com ${portfolio.name}.`,
 };
 
-const socialLinks = [
-  { href: portfolio.github, icon: GitBranch, label: "GitHub", handle: "@alexjohnson" },
-  { href: portfolio.linkedin, icon: Link2, label: "LinkedIn", handle: "in/alexjohnson" },
-  { href: portfolio.twitter, icon: X, label: "Twitter / X", handle: "@alexjohnson" },
-  { href: `mailto:${portfolio.email}`, icon: Mail, label: "Email", handle: portfolio.email },
+const contacts = [
+  {
+    label: "E-mail",
+    value: portfolio.email,
+    href: `mailto:${portfolio.email}`,
+    icon: Mail,
+  },
+  {
+    label: "WhatsApp",
+    value: portfolio.phone,
+    href: portfolio.whatsapp,
+    icon: MessageCircle,
+  },
+  {
+    label: "GitHub",
+    value: "github.com/auhauhbr",
+    href: portfolio.github,
+    icon: Github,
+  },
+  {
+    label: "LinkedIn",
+    value: "Jefferson Tadeu dos Santos",
+    href: portfolio.linkedin,
+    icon: Linkedin,
+  },
 ];
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-6xl px-6 py-24">
-      <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
-        {/* Left — info */}
-        <div className="space-y-8">
-          <div>
-            <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-              Contact
-            </p>
-            <h1 className="text-4xl font-bold tracking-tight text-foreground">
-              Let&apos;s work together
-            </h1>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              Have a project in mind or want to discuss an opportunity? I&apos;m
-              always open to new collaborations and conversations.
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            {socialLinks.map(({ href, icon: Icon, label, handle }) => (
-              <Link
-                key={label}
-                href={href}
-                target={href.startsWith("mailto") ? undefined : "_blank"}
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 rounded-lg border border-border bg-card p-4 text-sm font-medium transition-colors hover:bg-secondary group"
-              >
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-secondary group-hover:bg-background transition-colors">
-                  <Icon className="h-4 w-4 text-muted-foreground" />
-                </div>
-                <div>
-                  <p className="font-medium text-foreground">{label}</p>
-                  <p className="text-muted-foreground text-xs">{handle}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="pt-2">
-            <Separator className="mb-6" />
-            <p className="text-sm text-muted-foreground">
-              Prefer to support my open-source work?{" "}
-              <Link
-                href={portfolio.kofi}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-foreground underline-offset-4 hover:underline inline-flex items-center gap-1"
-              >
-                <Coffee className="h-3.5 w-3.5" />
-                Buy me a coffee
-              </Link>
-            </p>
-          </div>
+    <section className="min-h-[calc(100vh-4rem)] bg-[#061326] py-20 text-white">
+      <div className="mx-auto grid max-w-6xl gap-14 px-6 lg:grid-cols-[1fr_.9fr]">
+        <div>
+          <p className="section-label !text-sky-300">Contato</p>
+          <h1 className="max-w-2xl text-4xl font-bold tracking-[-0.04em] sm:text-6xl">
+            Vamos construir algo útil juntos?
+          </h1>
+          <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
+            Estou aberto a oportunidades de estágio, posições júnior,
+            colaborações e conversas sobre desenvolvimento backend, full stack
+            e automação.
+          </p>
+          <p className="mt-8 flex items-center gap-2 text-sm text-slate-400">
+            <MapPin className="h-4 w-4" /> {portfolio.location}
+          </p>
         </div>
 
-        {/* Right — form */}
-        <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
-          <h2 className="mb-6 text-lg font-semibold text-foreground">
-            Send a message
-          </h2>
-          <ContactForm />
+        <div className="space-y-4">
+          {contacts.map(({ label, value, href, icon: Icon }) => (
+            <Link
+              key={label}
+              href={href}
+              target={href.startsWith("mailto:") ? undefined : "_blank"}
+              rel="noopener noreferrer"
+              className="group flex items-center gap-5 rounded-2xl border border-white/10 bg-white/[0.035] p-6 transition hover:border-sky-400/60 hover:bg-white/[0.06]"
+            >
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-sky-400/10 text-sky-300">
+                <Icon className="h-5 w-5" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-xs uppercase tracking-widest text-slate-500">
+                  {label}
+                </span>
+                <span className="mt-1 block truncate font-medium text-slate-100">
+                  {value}
+                </span>
+              </span>
+              <ArrowUpRight className="h-5 w-5 text-slate-500 transition group-hover:text-sky-300" />
+            </Link>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

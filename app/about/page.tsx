@@ -6,8 +6,9 @@ import { Education } from "@/src/components/about/Education";
 import { portfolio } from "@/src/config/portfolio";
 
 export const metadata: Metadata = {
-  title: `About — ${portfolio.name}`,
-  description: `Learn more about ${portfolio.name}, ${portfolio.role} based in ${portfolio.location}.`,
+  title: `Sobre — ${portfolio.name}`,
+  description:
+    "Trajetória, formação, competências, cursos e conquistas de Jefferson Tadeu dos Santos.",
 };
 
 export default function AboutPage() {

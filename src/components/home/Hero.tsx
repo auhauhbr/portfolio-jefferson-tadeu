@@ -1,144 +1,111 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, MapPin, Download } from "lucide-react";
-import { motion, type Variants } from "framer-motion";
-import { Button } from "@/src/components/ui/button";
-import { Badge } from "@/src/components/ui/badge";
+import Link from "next/link";
+import {
+  ArrowRight,
+  Award,
+  Download,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  MessageCircle,
+} from "lucide-react";
+import { motion } from "framer-motion";
 import { portfolio } from "@/src/config/portfolio";
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" as const },
-  }),
-};
 
 export function Hero() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-24 md:py-32">
-      <div className="flex flex-col-reverse items-center gap-12 md:flex-row md:justify-between">
-        {/* Text content */}
-        <div className="flex flex-col gap-6 text-center md:text-left md:max-w-xl">
-          {/* Available badge */}
-          {portfolio.available && (
-            <motion.div
-              custom={0}
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-              className="flex justify-center md:justify-start"
-            >
-              <Badge variant="secondary" className="gap-1.5 py-1 px-3 text-xs">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
-                </span>
-                Available for work
-              </Badge>
-            </motion.div>
-          )}
-
-          {/* Name */}
-          <motion.h1
-            custom={1}
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl"
-          >
-            Hi, I&apos;m{" "}
-            <span className="text-foreground">{portfolio.name}</span>
-          </motion.h1>
-
-          {/* Role */}
-          <motion.p
-            custom={2}
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            className="text-xl font-medium text-muted-foreground"
-          >
-            {portfolio.role}
-          </motion.p>
-
-          {/* Bio */}
-          <motion.p
-            custom={3}
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            className="text-base text-muted-foreground leading-relaxed"
-          >
-            {portfolio.bio}
-          </motion.p>
-
-          {/* Location */}
-          <motion.div
-            custom={4}
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            className="flex items-center justify-center gap-1.5 text-sm text-muted-foreground md:justify-start"
-          >
-            <MapPin className="h-4 w-4" />
-            {portfolio.location}
-          </motion.div>
-
-          {/* CTAs */}
-          <motion.div
-            custom={5}
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            className="flex flex-col gap-3 sm:flex-row justify-center md:justify-start"
-          >
-            <Button asChild size="lg">
-              <Link href="/projects">
-                View my work
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link href="/contact">
-                <Download className="h-4 w-4" />
-                Download CV
-              </Link>
-            </Button>
-          </motion.div>
-        </div>
-
-        {/* Avatar */}
+    <section className="hero-grid overflow-hidden bg-[#061326] text-white">
+      <div className="mx-auto grid min-h-[680px] max-w-6xl items-center gap-14 px-6 py-20 md:grid-cols-[1.1fr_.9fr] md:py-24">
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="relative"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="relative z-10"
         >
-          <div className="relative h-56 w-56 sm:h-64 sm:w-64 md:h-80 md:w-80">
-            {/* Decorative ring */}
-            <div className="absolute inset-0 rounded-full border-2 border-dashed border-border animate-spin [animation-duration:20s]" />
-            {/* Avatar image */}
-            <div className="absolute inset-4 overflow-hidden rounded-full bg-secondary">
-              <Image
-                src={portfolio.avatar}
-                alt={portfolio.name}
-                fill
-                className="object-cover"
-                priority
-                onError={(e) => {
-                  // Fallback to initials if image fails
-                  (e.target as HTMLImageElement).style.display = "none";
-                }}
-              />
-              {/* Initials fallback */}
-              <div className="flex h-full w-full items-center justify-center text-4xl font-bold text-muted-foreground">
-                {portfolio.initials}
-              </div>
+          <h1 className="max-w-3xl text-4xl font-bold leading-[1.08] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
+            Construo sistemas que{" "}
+            <span className="text-sky-400">transformam problemas reais</span>{" "}
+            em soluções claras.
+          </h1>
+          <p className="mt-7 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+            Desenvolvedor em formação, com foco em backend, automação com
+            Python, APIs REST, banco de dados e aplicações full stack. Tenho
+            projetos com FastAPI, Celery, Redis, PostgreSQL, Docker, React,
+            TypeScript e Node.js, buscando criar soluções práticas para
+            problemas reais.
+          </p>
+
+          <div className="mt-9 flex flex-col flex-wrap gap-3 sm:flex-row">
+            <Link
+              href="/projects"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-sky-500 px-6 text-sm font-semibold text-white transition hover:bg-sky-400"
+            >
+              Ver projetos <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href={portfolio.resume}
+              target="_blank"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-sky-300/35 px-6 text-sm font-semibold text-sky-100 transition hover:border-sky-300 hover:bg-white/5"
+            >
+              <Download className="h-4 w-4" /> Baixar currículo
+            </Link>
+            <Link
+              href="/about#certificados"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-sky-300/35 px-6 text-sm font-semibold text-sky-100 transition hover:border-sky-300 hover:bg-white/5"
+            >
+              <Award className="h-4 w-4" /> Ver certificados
+            </Link>
+          </div>
+
+          <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-300">
+            <Link className="social-link" href={portfolio.github} target="_blank">
+              <Github className="h-4 w-4" /> GitHub
+            </Link>
+            <Link className="social-link" href={portfolio.linkedin} target="_blank">
+              <Linkedin className="h-4 w-4" /> LinkedIn
+            </Link>
+            <Link className="social-link" href={`mailto:${portfolio.email}`}>
+              <Mail className="h-4 w-4" /> E-mail
+            </Link>
+            <Link
+              className="social-link"
+              href={portfolio.whatsapp}
+              target="_blank"
+            >
+              <MessageCircle className="h-4 w-4" /> WhatsApp
+            </Link>
+            <span className="social-link">
+              <MapPin className="h-4 w-4" /> {portfolio.location}
+            </span>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.94 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.65, delay: 0.12 }}
+          className="relative mx-auto w-full max-w-[430px]"
+        >
+          <div className="absolute -inset-10 rounded-full bg-sky-500/10 blur-3xl" />
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900 shadow-2xl">
+            <Image
+              src={portfolio.avatar}
+              alt={`Retrato de ${portfolio.name}`}
+              fill
+              priority
+              sizes="(max-width: 768px) 90vw, 430px"
+              className="object-cover"
+            />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#061326] via-[#061326]/55 to-transparent p-6 pt-24">
+              <p className="font-semibold">{portfolio.name}</p>
+              <p className="mt-1 text-sm text-slate-300">{portfolio.role}</p>
             </div>
+          </div>
+          <div className="absolute -bottom-5 -left-5 rounded-xl border border-sky-400/25 bg-[#0b1d35] px-4 py-3 font-mono text-xs text-sky-300 shadow-xl">
+            {"{ backend · dados · produto }"}
           </div>
         </motion.div>
       </div>

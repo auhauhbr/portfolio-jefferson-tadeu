@@ -17,30 +17,42 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: `${portfolio.name} — ${portfolio.role}`,
+  title: {
+    default: `${portfolio.name} — ${portfolio.role}`,
+    template: `%s`,
+  },
   description: portfolio.shortBio,
+  keywords: [
+    "Jefferson Tadeu",
+    "desenvolvedor backend",
+    "desenvolvedor full stack",
+    "Python",
+    "FastAPI",
+    "React",
+    "Recife",
+  ],
+  authors: [{ name: portfolio.name }],
   openGraph: {
     title: `${portfolio.name} — ${portfolio.role}`,
     description: portfolio.shortBio,
     type: "website",
+    locale: "pt_BR",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
-      lang="en"
+      lang="pt-BR"
       className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
       <body className="min-h-screen bg-background text-foreground antialiased">
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >

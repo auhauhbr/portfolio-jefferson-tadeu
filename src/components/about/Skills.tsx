@@ -1,46 +1,55 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { portfolio } from "@/src/config/portfolio";
-import { Badge } from "@/src/components/ui/badge";
-import { Separator } from "@/src/components/ui/separator";
 
 export function Skills() {
-  return (
-    <section className="border-t border-border bg-secondary/20">
-      <div className="mx-auto max-w-6xl px-6 py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="space-y-6"
-        >
-          <div>
-            <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-              Expertise
-            </p>
-            <h2 className="text-2xl font-bold tracking-tight text-foreground">
-              Skills & Technologies
-            </h2>
-          </div>
+  const strengths = [
+    "APIs REST e processamento assíncrono",
+    "Aplicações full stack e tempo real",
+    "Automação, coleta e tratamento de dados",
+    "Modelagem e bancos relacionais",
+    "Docker, testes e integração contínua",
+    "Debugging, documentação e melhoria contínua",
+  ];
 
-          <div className="flex flex-wrap gap-2">
-            {portfolio.skills.map((skill, i) => (
-              <motion.div
-                key={skill}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.04, duration: 0.3 }}
-              >
-                <Badge variant="outline" className="px-3 py-1.5 text-sm font-medium">
-                  {skill}
-                </Badge>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+  return (
+    <section className="bg-white py-20 dark:bg-[#08111f]">
+      <div className="mx-auto max-w-6xl px-6">
+        <p className="section-label">Conhecimentos</p>
+        <h2 className="section-title text-slate-950 dark:text-white">
+          Habilidades principais
+        </h2>
+        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {strengths.map((strength) => (
+            <div
+              key={strength}
+              className="border-l-2 border-sky-500 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700 dark:bg-white/[0.035] dark:text-slate-200"
+            >
+              {strength}
+            </div>
+          ))}
+        </div>
+
+        <h3 className="mt-14 text-xl font-semibold text-slate-950 dark:text-white">
+          Tecnologias por área
+        </h3>
+        <div className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 md:grid-cols-2 lg:grid-cols-3 dark:border-white/10 dark:bg-white/10">
+          {Object.entries(portfolio.skills).map(([group, items]) => (
+            <div key={group} className="bg-white p-7 dark:bg-[#0a1628]">
+              <h3 className="text-lg font-semibold text-slate-950 dark:text-white">
+                {group}
+              </h3>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {items.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-md bg-slate-100 px-3 py-1.5 font-mono text-xs text-slate-700 dark:bg-white/5 dark:text-slate-300"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

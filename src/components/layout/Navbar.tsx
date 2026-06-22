@@ -1,146 +1,97 @@
 "use client";
 
-import * as React from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
-import { Moon, Sun, Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/src/components/ui/button";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import { portfolio } from "@/src/config/portfolio";
 import { cn } from "@/src/lib/utils";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
-  { href: "/contact", label: "Contact" },
+const links = [
+  { href: "/", label: "Início" },
+  { href: "/projects", label: "Projetos" },
+  { href: "/about", label: "Sobre" },
+  { href: "/contact", label: "Contato" },
 ];
 
 export function Navbar() {
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
-  const [menuOpen, setMenuOpen] = React.useState(false);
-  const [scrolled, setScrolled] = React.useState(false);
-
-  // Track scroll position for shadow
-  React.useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Close menu on route change
-  React.useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
+  const [open, setOpen] = useState(false);
 
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md transition-shadow duration-200",
-        scrolled && "shadow-sm"
-      )}
-    >
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl dark:border-white/10 dark:bg-[#061326]/90">
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        {/* Logo */}
-        <Link
-          href="/"
-          className="flex items-center gap-2 font-semibold text-foreground hover:opacity-80 transition-opacity"
-        >
-          <span className="flex h-8 w-8 items-center justify-center rounded-md bg-foreground text-background text-sm font-bold">
-            {portfolio.initials}
-          </span>
-          <span className="hidden sm:inline text-sm font-medium">
-            {portfolio.name}
+        <Link href="/" className="flex items-center gap-3">
+          <span>
+            <span className="block text-sm font-semibold text-slate-950 dark:text-white">
+              {portfolio.firstName}
+            </span>
+            <span className="block text-[11px] text-slate-500 dark:text-slate-400">
+              Backend / Full Stack
+            </span>
           </span>
         </Link>
 
-        {/* Desktop Nav Links */}
-        <ul className="hidden md:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className={cn(
-                  "px-4 py-2 rounded-md text-sm font-medium transition-colors",
-                  pathname === link.href
-                    ? "bg-secondary text-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
-                )}
-              >
-                {link.label}
-              </Link>
-            </li>
+        <div className="hidden items-center gap-1 md:flex">
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={cn(
+                "rounded-md px-4 py-2 text-sm font-medium transition",
+                pathname === link.href
+                  ? "text-sky-600 dark:text-sky-300"
+                  : "text-slate-600 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white"
+              )}
+            >
+              {link.label}
+            </Link>
           ))}
-        </ul>
+        </div>
 
-        {/* Right side: theme toggle + hire me */}
         <div className="flex items-center gap-2">
-          {/* Theme toggle */}
-          <Button
-            variant="ghost"
-            size="icon"
+          <button
+            type="button"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            aria-label="Toggle theme"
+            className="relative flex h-9 w-9 items-center justify-center rounded-md text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/10"
+            aria-label="Alternar tema"
           >
-            <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-            <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          </Button>
-
-          {/* Hire me — desktop */}
-          <Button asChild size="sm" className="hidden md:inline-flex">
-            <Link href="/contact">Hire me</Link>
-          </Button>
-
-          {/* Hamburger — mobile */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
+            <Sun className="h-4 w-4 scale-100 dark:scale-0" />
+            <Moon className="absolute h-4 w-4 scale-0 dark:scale-100" />
+          </button>
+          <Link
+            href="/contact"
+            className="hidden rounded-lg bg-sky-500 px-4 py-2 text-sm font-semibold text-white hover:bg-sky-400 md:block"
           >
-            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
+            Fale comigo
+          </Link>
+          <button
+            type="button"
+            onClick={() => setOpen(!open)}
+            className="flex h-9 w-9 items-center justify-center md:hidden"
+            aria-label="Abrir menu"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
       </nav>
 
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden border-t border-border bg-background overflow-hidden"
-          >
-            <ul className="flex flex-col px-6 py-4 gap-1">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={cn(
-                      "block px-4 py-2.5 rounded-md text-sm font-medium transition-colors",
-                      pathname === link.href
-                        ? "bg-secondary text-foreground"
-                        : "text-muted-foreground hover:text-foreground hover:bg-secondary"
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-              <li className="pt-2">
-                <Button asChild size="sm" className="w-full">
-                  <Link href="/contact">Hire me</Link>
-                </Button>
-              </li>
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {open && (
+        <div className="border-t border-slate-200 bg-white px-6 py-4 dark:border-white/10 dark:bg-[#061326] md:hidden">
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              className="block rounded-md px-3 py-3 text-sm font-medium"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+      )}
     </header>
   );
 }

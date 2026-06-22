@@ -1,51 +1,54 @@
 import Link from "next/link";
-import { GitBranch, Link2, X, Coffee } from "lucide-react";
+import { Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 import { portfolio } from "@/src/config/portfolio";
-import { Separator } from "@/src/components/ui/separator";
-
-const socialLinks = [
-  { href: portfolio.github, icon: GitBranch, label: "GitHub" },
-  { href: portfolio.linkedin, icon: Link2, label: "LinkedIn" },
-  { href: portfolio.twitter, icon: X, label: "Twitter" },
-  { href: portfolio.kofi, icon: Coffee, label: "Ko-fi" },
-];
 
 export function Footer() {
-  const year = new Date().getFullYear();
-
   return (
-    <footer className="border-t border-border bg-background">
-      <div className="mx-auto max-w-6xl px-6 py-12">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          {/* Left — name + tagline */}
-          <div className="space-y-1">
-            <p className="font-semibold text-foreground">{portfolio.name}</p>
-            <p className="text-sm text-muted-foreground">{portfolio.role}</p>
-          </div>
-
-          {/* Right — social links */}
-          <div className="flex items-center gap-1">
-            {socialLinks.map(({ href, icon: Icon, label }) => (
-              <Link
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground hover:bg-secondary"
-              >
-                <Icon className="h-4 w-4" />
-              </Link>
-            ))}
-          </div>
+    <footer className="border-t border-white/10 bg-[#061326] text-white">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p className="font-semibold">{portfolio.name}</p>
+          <p className="mt-1 text-sm text-slate-400">{portfolio.role}</p>
         </div>
-
-        <Separator className="my-6" />
-
-        <p className="text-center text-xs text-muted-foreground">
-          © {year} {portfolio.name}. Built with Next.js & Tailwind CSS.
-        </p>
+        <div className="flex items-center gap-2">
+          <FooterLink href={portfolio.github} label="GitHub">
+            <Github className="h-4 w-4" />
+          </FooterLink>
+          <FooterLink href={portfolio.linkedin} label="LinkedIn">
+            <Linkedin className="h-4 w-4" />
+          </FooterLink>
+          <FooterLink href={`mailto:${portfolio.email}`} label="E-mail">
+            <Mail className="h-4 w-4" />
+          </FooterLink>
+          <FooterLink href={portfolio.whatsapp} label="WhatsApp">
+            <MessageCircle className="h-4 w-4" />
+          </FooterLink>
+        </div>
+      </div>
+      <div className="border-t border-white/10 px-6 py-5 text-center text-xs text-slate-500">
+        © {new Date().getFullYear()} {portfolio.name}. Desenvolvido com Next.js.
       </div>
     </footer>
+  );
+}
+
+function FooterLink({
+  href,
+  label,
+  children,
+}: {
+  href: string;
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      target={href.startsWith("mailto:") ? undefined : "_blank"}
+      aria-label={label}
+      className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-slate-300 hover:border-sky-400 hover:text-sky-300"
+    >
+      {children}
+    </Link>
   );
 }

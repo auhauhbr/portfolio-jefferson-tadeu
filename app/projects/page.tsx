@@ -3,8 +3,8 @@ import { ProjectsClient } from "@/src/components/projects/ProjectsClient";
 import { portfolio } from "@/src/config/portfolio";
 
 export const metadata: Metadata = {
-  title: `Projects — ${portfolio.name}`,
-  description: `Explore projects built by ${portfolio.name}, ${portfolio.role}.`,
+  title: `Projetos — ${portfolio.name}`,
+  description: `Projetos de backend, full stack, automação, dados, produto web, desktop e estudos técnicos de ${portfolio.name}.`,
 };
 
 export default function ProjectsPage() {

@@ -1,196 +1,893 @@
-// ============================================================
-// PORTFOLIO CONFIG — Edit this file to customize everything!
-// ============================================================
+export type ProjectCategory =
+  | "Backend"
+  | "Full Stack"
+  | "Automação / Dados"
+  | "Produto Web"
+  | "Desktop / Ferramentas"
+  | "Estudos Técnicos";
+
+export interface ProjectImage {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
+export interface ProjectLink {
+  label: string;
+  href: string;
+}
+
+export interface ProjectReadme {
+  source: string;
+  imageBase?: string;
+  linkBase?: string;
+  imageMap?: Partial<Record<string, string>>;
+}
+
+export interface Project {
+  id: number;
+  title: string;
+  summary: string;
+  description: string;
+  contribution: string;
+  images?: ProjectImage[];
+  tech: string[];
+  features: string[];
+  architecture: string[];
+  github: string;
+  live?: string;
+  links?: ProjectLink[];
+  readme?: ProjectReadme;
+  category: ProjectCategory;
+  featured: boolean;
+  status: string;
+}
+
+export interface Education {
+  institution: string;
+  degree: string;
+  period: string;
+  status: string;
+  description: string;
+}
 
 export const portfolio = {
-  // ----------------------------------------------------------
-  // Personal Info
-  // ----------------------------------------------------------
-  name: "Alex Johnson",
-  initials: "AJ",
-  role: "Full Stack Developer",
-  location: "San Francisco, CA",
-  bio: "I build clean, fast, and accessible web applications. Passionate about great UI and developer experience. I love turning complex problems into simple, elegant solutions.",
-  shortBio: "Full Stack Developer based in San Francisco, building clean and performant web experiences.",
-  avatar: "/avatar.jpg", // Place your photo in /public/avatar.jpg
-  available: true, // Set to false to hide "Available for work" badge
-
-  // ----------------------------------------------------------
-  // Contact & Social
-  // ----------------------------------------------------------
-  email: "alex@example.com",
-  github: "https://github.com/alexjohnson",
-  linkedin: "https://linkedin.com/in/alexjohnson",
-  twitter: "https://twitter.com/alexjohnson",
-  kofi: "https://ko-fi.com/alexjohnson",
-
-  // ----------------------------------------------------------
-  // Skills
-  // ----------------------------------------------------------
-  skills: [
-    "Next.js",
-    "React",
-    "TypeScript",
-    "Tailwind CSS",
-    "Node.js",
-    "PostgreSQL",
-    "Prisma",
-    "Docker",
-    "Git",
-    "Figma",
-    "REST APIs",
-    "GraphQL",
-    "AWS",
-    "Vercel",
-    "Linux",
+  name: "Jefferson Tadeu dos Santos",
+  firstName: "Jefferson Tadeu",
+  initials: "JT",
+  role: "Desenvolvedor Backend / Full Stack Júnior",
+  location: "Recife, PE",
+  email: "tadeu.santos7148@gmail.com",
+  phone: "(81) 99284-4840",
+  whatsapp: "https://wa.me/5581992844840",
+  github: "https://github.com/auhauhbr",
+  linkedin:
+    "https://www.linkedin.com/in/jefferson-tadeu-dos-santos-0ab133380",
+  portfolioUrl: "https://jeffersontadeu.vercel.app",
+  avatar: "/images/jefferson.jpg",
+  resume: "/documents/curriculo-jefferson-tadeu.pdf",
+  available: true,
+  headline:
+    "Construo sistemas que transformam problemas reais em soluções claras.",
+  shortBio:
+    "Desenvolvedor em formação, com foco em backend, automação com Python, APIs REST, banco de dados e aplicações full stack.",
+  bio:
+    "Sou desenvolvedor full stack em formação, Técnico em Desenvolvimento de Sistemas e estudante de Análise e Desenvolvimento de Sistemas. Construo aplicações completas, passando por interface, regras de negócio, banco de dados, integrações, testes e deploy.",
+  about: [
+    "No front-end, trabalho com React, TypeScript, JavaScript, HTML, CSS, Vite e Tailwind CSS para criar interfaces responsivas, organizadas e realmente conectadas às regras de negócio.",
+    "No back-end, desenvolvo APIs e integrações com Python, FastAPI, Node.js e Express. Também tenho prática com autenticação, filas, workers, processamento assíncrono, logs, testes e automações que reduzem tarefas manuais.",
+    "Utilizo PostgreSQL, SQLite, Prisma e SQLAlchemy para modelagem e persistência, além de Docker, GitHub Actions e serviços de deploy para organizar o ciclo completo das aplicações. Projetos como Nexo Kanban, Orquestrador Assíncrono, AirVision e Rastreador de Preços refletem essa formação prática.",
+    "Busco oportunidades como estagiário ou desenvolvedor júnior em front-end, back-end ou full stack, onde eu possa contribuir com responsabilidade, evoluir com profissionais experientes e construir soluções úteis para problemas reais.",
   ],
 
-  // Tech stack logos shown in the animated strip (name + icon key)
+  skills: {
+    Backend: [
+      "Python",
+      "FastAPI",
+      "Celery",
+      "Node.js",
+      "Express",
+      "API REST",
+      "SQLAlchemy",
+      "JWT",
+      "Zod",
+      "Socket.io",
+      "Pydantic",
+    ],
+    Frontend: [
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "Vite",
+      "React Router",
+      "TanStack Query",
+      "Axios",
+      "HTML",
+      "CSS",
+      "Tailwind CSS",
+      "Bootstrap",
+    ],
+    "Banco de dados": [
+      "PostgreSQL",
+      "Redis",
+      "Prisma ORM",
+      "SQLite",
+      "MySQL",
+      "SQLAlchemy",
+      "Modelagem relacional",
+    ],
+    "Automação e dados": [
+      "Requests",
+      "BeautifulSoup",
+      "Pandas",
+      "NumPy",
+      "Streamlit",
+      "Plotly",
+      "SMTP",
+      "OpenAQ API",
+    ],
+    Ferramentas: [
+      "Docker",
+      "Docker Compose",
+      "Git",
+      "GitHub",
+      "GitHub Actions",
+      "Nginx",
+      "Render",
+      "Neon",
+      "GitHub Pages",
+      "Ruff",
+      "Pytest",
+    ],
+    "Estudos técnicos": [
+      "C++17",
+      "POO",
+      "STL",
+      "CMake",
+      "Java",
+      "C#",
+      ".NET 9",
+      "WPF",
+      "unittest",
+      "Algoritmos",
+      "Estruturas de dados",
+    ],
+    "Tecnologias estudadas em cursos": [
+      "Django",
+      "PySide6",
+      "Selenium",
+      "jQuery",
+      "WordPress",
+      "Laravel",
+      "CodeIgniter",
+      "Slim Framework",
+      "Sass",
+      "Ionic",
+      "Next.js",
+      "Spring Boot",
+      "Hibernate",
+      "JPA",
+      "JDBC",
+      "JavaFX",
+      "MongoDB",
+      "CouchDB",
+      "Firebase",
+      "Oracle",
+      "SQL Server",
+      "T-SQL",
+      "PL/SQL",
+      "PDO",
+      "AJAX",
+      "MVC",
+      "Weka",
+      "PHPMyAdmin",
+      "Godot",
+      "GDScript",
+      "Unity",
+    ],
+  },
+
   techStack: [
-    { name: "Next.js" },
-    { name: "React" },
-    { name: "TypeScript" },
-    { name: "Tailwind CSS" },
-    { name: "Node.js" },
-    { name: "PostgreSQL" },
-    { name: "Docker" },
-    { name: "Git" },
-    { name: "Figma" },
-    { name: "Vercel" },
-    { name: "AWS" },
-    { name: "GraphQL" },
+    { name: "Python", icon: "/tech/python.svg" },
+    { name: "FastAPI", icon: "/tech/fastapi.svg" },
+    { name: "Celery", icon: "/tech/celery.svg" },
+    { name: "Redis", icon: "/tech/redis.svg" },
+    { name: "PostgreSQL", icon: "/tech/postgresql.svg" },
+    { name: "Docker", icon: "/tech/docker.svg" },
+    { name: "React", icon: "/tech/react.svg" },
+    { name: "TypeScript", icon: "/tech/typescript.svg" },
+    { name: "Node.js", icon: "/tech/nodejs.svg" },
+    { name: "Express", icon: "/tech/express.svg" },
+    { name: "Socket.io", icon: "/tech/socketio.svg" },
+    { name: "Prisma", icon: "/tech/prisma.svg" },
+    { name: "Vite", icon: "/tech/vite.svg" },
+    { name: "Streamlit", icon: "/tech/streamlit.svg" },
+    { name: "C#", icon: "/tech/csharp.svg" },
+    { name: "C++", icon: "/tech/cplusplus.svg" },
+    { name: ".NET", icon: "/tech/dotnet.svg" },
+    { name: "Bootstrap", icon: "/tech/bootstrap.svg" },
+    { name: "JavaScript", icon: "/tech/javascript.svg" },
+    { name: "HTML5", icon: "/tech/html5.svg" },
+    { name: "CSS3", icon: "/tech/css3.svg" },
+    { name: "Tailwind CSS", icon: "/tech/tailwind.svg" },
+    { name: "SQLite", icon: "/tech/sqlite.svg" },
+    { name: "MySQL", icon: "/tech/mysql.svg" },
+    { name: "Pandas", icon: "/tech/pandas.svg" },
+    { name: "Plotly", icon: "/tech/plotly.svg" },
+    { name: "SQLAlchemy", icon: "/tech/sqlalchemy.svg" },
+    { name: "Git", icon: "/tech/git.svg" },
+    { name: "GitHub Actions", icon: "/tech/githubactions.svg" },
+    { name: "Pytest", icon: "/tech/pytest.svg" },
+    { name: "CMake", icon: "/tech/cmake.svg" },
+    { name: "Java", icon: "/tech/java.svg" },
+    { name: "PHP", icon: "/tech/php.svg" },
+    { name: "Nginx", icon: "/tech/nginx.svg" },
+    { name: "Render", icon: "/tech/render.svg" },
+    { name: "Neon", icon: "/tech/neon.svg" },
+    { name: "Resend", icon: "/tech/resend.svg" },
+    { name: "JWT", icon: "/tech/jwt.svg" },
+    { name: "Zod", icon: "/tech/zod.svg" },
+    { name: "React Router", icon: "/tech/reactrouter.svg" },
+    { name: "Lucide React", icon: "/tech/lucide.svg" },
+    { name: "TanStack Query", icon: "/tech/tanstackquery.svg" },
+    { name: "Axios", icon: "/tech/axios.svg" },
+    { name: "Django", icon: "/tech/django.svg" },
+    { name: "PySide6", icon: "/tech/qt.svg" },
+    { name: "Selenium", icon: "/tech/selenium.svg" },
+    { name: "jQuery", icon: "/tech/jquery.svg" },
+    { name: "WordPress", icon: "/tech/wordpress.svg" },
+    { name: "Laravel", icon: "/tech/laravel.svg" },
+    { name: "CodeIgniter", icon: "/tech/codeigniter.svg" },
+    { name: "Slim Framework" },
+    { name: "Sass", icon: "/tech/sass.svg" },
+    { name: "Ionic", icon: "/tech/ionic.svg" },
+    { name: "Next.js", icon: "/tech/nextjs.svg" },
+    { name: "Spring Boot", icon: "/tech/springboot.svg" },
+    { name: "Hibernate", icon: "/tech/hibernate.svg" },
+    { name: "JPA" },
+    { name: "JDBC" },
+    { name: "MongoDB", icon: "/tech/mongodb.svg" },
+    { name: "CouchDB", icon: "/tech/couchdb.svg" },
+    { name: "Firebase", icon: "/tech/firebase.svg" },
+    { name: "PHPMyAdmin", icon: "/tech/phpmyadmin.svg" },
+    { name: "Godot", icon: "/tech/godot.svg" },
+    { name: "GDScript", icon: "/tech/gds.svg" },
+    { name: "Unity", icon: "/tech/unity.svg" },
+    { name: "WPF" },
+    { name: "Docker Compose" },
+    { name: "BeautifulSoup" },
+    { name: "Requests" },
+    { name: "OpenAQ API" },
+    { name: "LocalStorage" },
+    { name: "JavaFX" },
+    { name: "Oracle" },
+    { name: "SQL Server" },
+    { name: "T-SQL" },
+    { name: "PL/SQL" },
+    { name: "PDO" },
+    { name: "AJAX" },
+    { name: "MVC" },
+    { name: "Weka" },
   ],
 
-  // ----------------------------------------------------------
-  // Projects
-  // ----------------------------------------------------------
   projects: [
     {
       id: 1,
-      title: "SaaS Dashboard",
+      title: "Orquestrador Assíncrono",
+      summary: "API para distribuir e monitorar tarefas em segundo plano.",
       description:
-        "A full-featured analytics dashboard for SaaS products with real-time charts, user management, and billing integration. Built with Next.js and Stripe.",
-      image: "/projects/saas-dashboard.jpg",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "PostgreSQL"],
-      github: "https://github.com/alexjohnson/saas-dashboard",
-      live: "https://saas-dashboard-demo.vercel.app",
-      category: "Web",
+        "Central de tarefas distribuídas que recebe trabalhos por HTTP, persiste cada solicitação e encaminha a execução para workers especializados. A API devolve um identificador imediatamente, enquanto o processamento continua de forma independente e observável.",
+      contribution:
+        "Implementei filas high, default e low, processamento paralelo, retries com backoff exponencial, fila de tarefas mortas, reprocessamento, cancelamento, métricas, logs JSON e tarefas periódicas. O projeto também executa envio de e-mail, redimensionamento de imagens e geração de relatórios CSV.",
+      images: [
+        {
+          src: "/images/projects/orquestrador-arquitetura.jpg",
+          alt: "Diagrama completo da arquitetura do Orquestrador Assíncrono",
+          caption:
+            "Arquitetura completa com FastAPI, Redis, workers Celery por prioridade, PostgreSQL, Beat, Flower e Resend.",
+        },
+        {
+          src: "/images/projects/orquestrador-swagger.png",
+          alt: "Documentação Swagger do Orquestrador Assíncrono",
+          caption: "API REST documentada e testável pelo Swagger.",
+        },
+        {
+          src: "/images/projects/orquestrador-flower.png",
+          alt: "Monitoramento de workers no Flower",
+          caption: "Workers, filas e tarefas acompanhados no Flower.",
+        },
+      ],
+      tech: [
+        "Python",
+        "FastAPI",
+        "Celery",
+        "Redis",
+        "PostgreSQL",
+        "SQLAlchemy",
+        "Pydantic",
+        "Flower",
+        "Celery Beat",
+        "Pillow",
+        "Resend",
+        "Docker",
+        "Docker Compose",
+        "Pytest",
+        "Ruff",
+        "Uvicorn",
+      ],
+      features: [
+        "Filas por prioridade e workers dedicados",
+        "Retry automático com backoff exponencial",
+        "Dead-letter queue e reprocessamento",
+        "Métricas agregadas e logs estruturados",
+        "Tarefas agendadas com Celery Beat",
+        "E-mail, imagens e relatórios CSV",
+      ],
+      architecture: [
+        "Cliente HTTP",
+        "FastAPI",
+        "PostgreSQL + Redis",
+        "Workers Celery",
+        "Flower + Beat",
+      ],
+      github: "https://github.com/auhauhbr/orquestrador-assincrono-API",
+      readme: {
+        source: "/readmes/orquestrador.md",
+        imageBase:
+          "https://raw.githubusercontent.com/auhauhbr/orquestrador-assincrono-API/main/",
+        linkBase:
+          "https://github.com/auhauhbr/orquestrador-assincrono-API/blob/main/",
+        imageMap: {
+          "docs/imagens/arquitetura-orquestrador-assincrono.jpg":
+            "/images/projects/orquestrador-arquitetura.jpg",
+        },
+      },
+      category: "Backend",
       featured: true,
+      status: "Projeto autoral",
     },
     {
       id: 2,
-      title: "E-Commerce Platform",
+      title: "Nexo Kanban",
+      summary: "Gestão Kanban full stack, em tempo real e publicada.",
       description:
-        "A modern e-commerce storefront with product filtering, cart management, and Stripe checkout. Fully responsive with optimized performance.",
-      image: "/projects/ecommerce.jpg",
-      tech: ["React", "Node.js", "MongoDB", "Stripe", "Redux"],
-      github: "https://github.com/alexjohnson/ecommerce",
-      live: "https://ecommerce-demo.vercel.app",
-      category: "Web",
+        "Aplicação completa para organizar projetos em quadros, listas e cartões. Combina uma interface responsiva com API REST, autenticação, banco relacional e eventos em tempo real, mantendo regras de autorização e ordenação no backend.",
+      contribution:
+        "Construí autenticação JWT, drag and drop, capas, etiquetas, checklists, prazos, comentários, histórico, anexos por link, arquivamento e limite WIP. A versão pública separa frontend, API e banco entre GitHub Pages, Render e Neon, com validação automatizada pelo GitHub Actions.",
+      images: [
+        {
+          src: "/images/projects/nexo/login.png",
+          alt: "Tela de login do Nexo",
+          caption: "Login integrado à identidade visual do produto.",
+        },
+        {
+          src: "/images/projects/nexo/cadastro.png",
+          alt: "Tela de cadastro do Nexo",
+          caption: "Cadastro com confirmação e validação de senha.",
+        },
+        {
+          src: "/images/projects/nexo/quadros.png",
+          alt: "Painel de quadros do Nexo",
+          caption: "Área autenticada para criação e acesso aos quadros.",
+        },
+        {
+          src: "/images/projects/nexo/cartao-detalhes.png",
+          alt: "Modal de detalhes de cartão do Nexo",
+          caption: "Edição de cartão, comentários, anexos, prazo e capa.",
+        },
+        {
+          src: "/images/projects/nexo/cartao-recursos.png",
+          alt: "Etiquetas e checklists no Nexo",
+          caption: "Etiquetas, checklists e histórico de atividades.",
+        },
+        {
+          src: "/images/projects/nexo/arquivados.png",
+          alt: "Central de arquivados do Nexo",
+          caption: "Restauração de listas e cartões arquivados.",
+        },
+      ],
+      tech: [
+        "React",
+        "TypeScript",
+        "Vite",
+        "TanStack Query",
+        "Axios",
+        "React Router",
+        "Lucide React",
+        "Node.js",
+        "Express",
+        "Zod",
+        "JWT",
+        "bcryptjs",
+        "Socket.io",
+        "PostgreSQL",
+        "Prisma ORM",
+        "Docker",
+        "Docker Compose",
+        "Nginx",
+        "GitHub Actions",
+        "GitHub Pages",
+        "Render",
+        "Neon",
+      ],
+      features: [
+        "Autenticação e rotas privadas com JWT",
+        "Quadros, listas e cartões com drag and drop",
+        "Atualização em tempo real por sala privada",
+        "Histórico, comentários, etiquetas e checklists",
+        "Arquivamento separado da exclusão",
+        "WIP limit e alertas de prazo",
+        "Testes de integração, tipos e CI",
+      ],
+      architecture: [
+        "React no GitHub Pages",
+        "API Express no Render",
+        "Socket.io",
+        "Prisma ORM",
+        "PostgreSQL no Neon",
+      ],
+      github: "https://github.com/auhauhbr/nexo-kanban",
+      live: "https://auhauhbr.github.io/nexo-kanban/",
+      links: [
+        {
+          label: "Status da API",
+          href: "https://nexo-kanban.onrender.com/health",
+        },
+      ],
+      readme: {
+        source: "/readmes/nexo.md",
+        imageBase:
+          "https://raw.githubusercontent.com/auhauhbr/nexo-kanban/main/",
+        linkBase: "https://github.com/auhauhbr/nexo-kanban/blob/main/",
+      },
+      category: "Full Stack",
       featured: true,
+      status: "Publicado",
     },
     {
       id: 3,
-      title: "Task Manager App",
+      title: "Rastreador de Preços",
+      summary: "Automação de coleta, histórico e análise de ofertas.",
       description:
-        "A cross-platform mobile task manager with drag-and-drop boards, real-time sync, and team collaboration features built with React Native.",
-      image: "/projects/task-manager.jpg",
-      tech: ["React Native", "Expo", "Firebase", "TypeScript"],
-      github: "https://github.com/alexjohnson/task-manager",
-      live: "https://task-manager-demo.vercel.app",
-      category: "Mobile",
+        "Plataforma local para acompanhar produtos escolhidos pelo usuário. Cada oferta é cadastrada com sua URL e seletor CSS, permitindo coletar preços em lote, comparar lojas e manter um histórico detalhado em SQLite.",
+      contribution:
+        "Modelei catálogo, ofertas e leituras; criei coleta tolerante a falhas, análise de média de 30 dias, menores preços de 30 e 90 dias, índice de preço e alertas com cooldown. O dashboard Streamlit separa visualização da coleta e oferece filtros, gráficos e comparação entre lojas.",
+      tech: [
+        "Python",
+        "Requests",
+        "BeautifulSoup",
+        "SQLite",
+        "Pandas",
+        "Streamlit",
+        "SMTP",
+        "python-dotenv",
+        "JSON",
+        "unittest",
+      ],
+      features: [
+        "Catálogo de categorias, lojas, produtos e ofertas",
+        "Coleta em lote com intervalo controlado",
+        "Histórico por produto e loja",
+        "Índice de preço e classificação de promoções",
+        "Alertas de preço com cooldown",
+        "Dashboard com filtros e gráficos",
+      ],
+      architecture: [
+        "Catálogo JSON",
+        "Coletor Requests + BeautifulSoup",
+        "Serviço de análise",
+        "SQLite",
+        "Dashboard Streamlit + alertas SMTP",
+      ],
+      github: "https://github.com/auhauhbr/rastreador-precos",
+      readme: {
+        source: "/readmes/rastreador.md",
+        imageBase:
+          "https://raw.githubusercontent.com/auhauhbr/rastreador-precos/main/",
+        linkBase:
+          "https://github.com/auhauhbr/rastreador-precos/blob/main/",
+      },
+      category: "Automação / Dados",
       featured: true,
+      status: "Projeto autoral",
     },
     {
       id: 4,
-      title: "Design System",
+      title: "AirVision",
+      summary: "Dashboard analítico para dados globais de qualidade do ar.",
       description:
-        "An open-source UI component library with 40+ accessible components, dark mode support, and comprehensive Storybook documentation.",
-      image: "/projects/design-system.jpg",
-      tech: ["React", "TypeScript", "Storybook", "Radix UI", "CSS"],
-      github: "https://github.com/alexjohnson/design-system",
-      live: "https://design-system-docs.vercel.app",
-      category: "Open Source",
-      featured: false,
+        "Aplicação web publicada que transforma dados reais da OpenAQ em indicadores e visualizações interativas. O usuário escolhe país, cidade, poluente e período; o backend localiza sensores, processa os registros e entrega dados prontos para análise.",
+      contribution:
+        "Implementei séries temporais, médias móveis de 7 e 14 dias, anomalias, dias críticos, conformidade OMS, tendência anual, heatmap e exportação CSV. A arquitetura mantém a chave OpenAQ exclusivamente no backend e usa cache SQLite e modo demonstrativo quando não há cobertura recente.",
+      images: [
+        {
+          src: "/images/projects/airvision/dashboard.png",
+          alt: "Dashboard completo do AirVision",
+          caption: "Visão geral com filtros, indicadores, gráficos e dias críticos.",
+        },
+        {
+          src: "/images/projects/airvision/media-movel.png",
+          alt: "Média móvel no AirVision",
+          caption: "Série temporal com SMA de 7 dias e tooltip interativo.",
+        },
+        {
+          src: "/images/projects/airvision/anomalias.png",
+          alt: "Detecção de anomalias no AirVision",
+          caption: "Modo de análise focado em anomalias e limite da OMS.",
+        },
+      ],
+      tech: [
+        "React",
+        "Vite",
+        "Plotly",
+        "FastAPI",
+        "Pandas",
+        "NumPy",
+        "Pydantic",
+        "Requests",
+        "SQLite",
+        "OpenAQ v3",
+        "Pytest",
+        "Playwright",
+        "GitHub Actions",
+        "GitHub Pages",
+        "Render",
+      ],
+      features: [
+        "PM2.5, PM10, NO₂, O₃, CO e SO₂",
+        "Médias móveis e detecção de anomalias",
+        "Conformidade OMS e tendência anual",
+        "Heatmap por hora e dia da semana",
+        "Cache SQLite e fallback demonstrativo",
+        "Exportação dos dados filtrados em CSV",
+      ],
+      architecture: [
+        "Usuário",
+        "React no GitHub Pages",
+        "FastAPI no Render",
+        "OpenAQ v3",
+        "Cache SQLite",
+      ],
+      github: "https://github.com/auhauhbr/AirVision-qualidade-do-ar",
+      live: "https://auhauhbr.github.io/AirVision-qualidade-do-ar/",
+      links: [
+        {
+          label: "Saúde da API",
+          href: "https://airvision-api.onrender.com/api/health",
+        },
+      ],
+      readme: {
+        source: "/readmes/airvision.md",
+        imageBase:
+          "https://raw.githubusercontent.com/auhauhbr/AirVision-qualidade-do-ar/main/",
+        linkBase:
+          "https://github.com/auhauhbr/AirVision-qualidade-do-ar/blob/main/",
+        imageMap: {
+          "docs/images/dashboard-visao-geral.png":
+            "/images/projects/airvision/dashboard-repo.png",
+          "docs/images/grafico-media-movel.png":
+            "/images/projects/airvision/media-movel.png",
+          "docs/images/grafico-anomalias.png":
+            "/images/projects/airvision/anomalias.png",
+        },
+      },
+      category: "Automação / Dados",
+      featured: true,
+      status: "Publicado",
     },
     {
       id: 5,
-      title: "AI Chat Interface",
+      title: "Trilum Conecta",
+      summary: "Plataforma de transição de carreira apresentada no Coday.",
       description:
-        "A sleek chat interface for interacting with large language models, featuring streaming responses, conversation history, and markdown rendering.",
-      image: "/projects/ai-chat.jpg",
-      tech: ["Next.js", "OpenAI API", "Tailwind CSS", "TypeScript"],
-      github: "https://github.com/alexjohnson/ai-chat",
-      live: "https://ai-chat-demo.vercel.app",
-      category: "Web",
-      featured: false,
+        "MVP de produto que conecta aprendizado, construção de evidências e oportunidades em tecnologia. O sistema atende alunos e empresas em jornadas integradas, com recomendações explicáveis e apoio contextual durante cada etapa.",
+      contribution:
+        "Atuei no motor de regras e pesos que transforma respostas subjetivas em trilhas, cursos e vagas coerentes. Também trabalhei radar de prontidão, currículo exportável, mentor contextual, Raio-X da vaga, dossiê do candidato e feedback assistido. Fui reconhecido como membro destaque no Coday 2026.1.",
+      images: [
+        {
+          src: "/images/projects/trilum/landing.png",
+          alt: "Landing page publicada do Trilum Conecta",
+          caption: "Landing page da plataforma publicada no GitHub Pages.",
+        },
+        {
+          src: "/images/projects/trilum/equipe.png",
+          alt: "Equipe do Trilum Conecta",
+          caption: "Integrantes do squad apresentados na landing page.",
+        },
+        {
+          src: "/images/projects/trilum/coday.png",
+          alt: "Página do Coday 2026.1 do Trilum Conecta",
+          caption: "Página especial com demo, materiais e contas de apresentação.",
+        },
+      ],
+      tech: [
+        "React",
+        "Vite",
+        "React Router",
+        "JavaScript",
+        "CSS",
+        "LocalStorage",
+        "Lucide React",
+        "React Icons",
+        "GitHub Actions",
+        "GitHub Pages",
+        "Ollama opcional",
+        "Motor de regras",
+      ],
+      features: [
+        "Wizard de diagnóstico e recomendações explicáveis",
+        "Trilhas, cursos, módulos e progresso",
+        "Mentor contextual e radar de prontidão",
+        "Perfil público e currículo exportável",
+        "Vagas, candidaturas e feedback profissional",
+        "Raio-X de vagas e dossiê de compatibilidade",
+        "Demo integrada para aluno e empresa",
+      ],
+      architecture: [
+        "React + HashRouter",
+        "Motor de regras local",
+        "LocalStorage",
+        "Ollama opcional",
+        "GitHub Pages",
+      ],
+      github: "https://github.com/auhauhbr/Trilum-Conecta",
+      live: "https://auhauhbr.github.io/Trilum-Conecta/#/",
+      links: [
+        {
+          label: "Página do Coday",
+          href: "https://auhauhbr.github.io/Trilum-Conecta/#/coday",
+        },
+      ],
+      readme: {
+        source: "/readmes/trilum.md",
+        imageBase:
+          "https://raw.githubusercontent.com/auhauhbr/Trilum-Conecta/main/",
+        linkBase: "https://github.com/auhauhbr/Trilum-Conecta/blob/main/",
+      },
+      category: "Produto Web",
+      featured: true,
+      status: "Coday 2026.1",
     },
     {
       id: 6,
-      title: "Portfolio UI Kit",
+      title: "GameLegenda",
+      summary: "Protótipo Windows de OCR, tradução e overlay para jogos.",
       description:
-        "A free Figma UI kit for developer portfolios with 20+ templates, reusable components, and dark/light mode designs.",
-      image: "/projects/ui-kit.jpg",
-      tech: ["Figma", "UI Design", "Design Tokens"],
-      github: "https://github.com/alexjohnson/portfolio-ui-kit",
-      live: "https://figma.com/community/file/example",
-      category: "UI",
+        "Protótipo desktop para capturar texto exibido em uma janela de jogo, reconhecer o conteúdo localmente e mostrar a tradução como overlay transparente próximo à posição original, sem substituir a interface do jogo.",
+      contribution:
+        "A versão atual valida seleção de janela, captura, OCR nativo do Windows com fallback PowerShell, glossário, cache e provedores plugáveis. Os atalhos F8, F9 e F10 controlam captura, visibilidade e posição do overlay.",
+      images: [
+        {
+          src: "/images/projects/gamelegenda/painel.png",
+          alt: "Painel principal do GameLegenda",
+          caption: "Seleção de janela, provedores e controle da captura.",
+        },
+        {
+          src: "/images/projects/gamelegenda/janela-teste.png",
+          alt: "Janela de teste do GameLegenda",
+          caption: "Cenário usado para validar OCR e posicionamento do overlay.",
+        },
+      ],
+      tech: [
+        "C#",
+        ".NET 9",
+        "WPF",
+        "Windows.Media.Ocr",
+        "PowerShell",
+        "DeepL API",
+        "LibreTranslate",
+        "Cache local",
+        "Glossário",
+        "Testes",
+      ],
+      features: [
+        "Captura de janela no Windows",
+        "OCR local com fallback",
+        "Overlay transparente e always-on-top",
+        "Tradução próxima ao texto original",
+        "Glossário e cache de traduções",
+        "Provedores plugáveis de tradução",
+      ],
+      architecture: [
+        "Captura da janela",
+        "OCR do Windows",
+        "Cache + glossário",
+        "DeepL / LibreTranslate",
+        "Overlay WPF",
+      ],
+      github: "https://github.com/auhauhbr/Projeto-Gamet---GameLegenda",
+      readme: {
+        source: "/readmes/gamelegenda.md",
+        imageBase:
+          "https://raw.githubusercontent.com/auhauhbr/Projeto-Gamet---GameLegenda/main/",
+        linkBase:
+          "https://github.com/auhauhbr/Projeto-Gamet---GameLegenda/blob/main/",
+      },
+      category: "Desktop / Ferramentas",
       featured: false,
+      status: "Protótipo experimental",
     },
-  ],
+    {
+      id: 7,
+      title: "Termu RPG",
+      summary: "RPG de terminal criado para consolidar fundamentos em C++17.",
+      description:
+        "Jogo de combate por turnos executado no terminal, com quatro classes, monstros, progressão, habilidades, inventário, equipamentos, loja e efeitos de status. O projeto transforma conteúdos de estudo em um programa completo e modular.",
+      contribution:
+        "Separei regras, catálogos, entrada, aleatoriedade e fluxo do jogo. O código exercita classes abstratas, herança, polimorfismo, STL, ponteiros inteligentes, validação de entrada e números aleatórios reproduzíveis.",
+      tech: [
+        "C++17",
+        "POO",
+        "STL",
+        "CMake",
+        "std::unique_ptr",
+        "std::mt19937",
+        "Testes automatizados",
+        "Algoritmos",
+        "Estruturas de dados",
+      ],
+      features: [
+        "Quatro classes jogáveis e cinco monstros",
+        "Combate com iniciativa e afinidades elementais",
+        "Inventário, equipamentos e loja",
+        "Progressão e evolução de habilidades",
+        "Validação robusta de entradas",
+        "Testes de regras e combate simulado",
+      ],
+      architecture: [
+        "Entrada",
+        "Jogo",
+        "Motor de combate",
+        "Personagem + Monstros",
+        "Regras + Catálogos",
+      ],
+      github: "https://github.com/auhauhbr/Termu-RPG-de-terminal-em-C-",
+      readme: {
+        source: "/readmes/termu.md",
+        imageBase:
+          "https://raw.githubusercontent.com/auhauhbr/Termu-RPG-de-terminal-em-C-/main/",
+        linkBase:
+          "https://github.com/auhauhbr/Termu-RPG-de-terminal-em-C-/blob/main/",
+      },
+      category: "Estudos Técnicos",
+      featured: false,
+      status: "Estudo aprofundado",
+    },
+    {
+      id: 8,
+      title: "Exercícios de Programação em Python",
+      summary: "Registro organizado de estudos sobre POO e banco de dados.",
+      description:
+        "Soluções documentadas dos capítulos de Classes e Objetos e Banco de Dados do livro Introdução à Programação com Python. Cada exercício possui contexto e demonstração executável para facilitar estudo e revisão.",
+      contribution:
+        "A prática cobre composição, herança, especialização de métodos, coleções, contas bancárias, SQLite, consultas parametrizadas, inserções e atualizações.",
+      tech: [
+        "Python",
+        "POO",
+        "SQLite",
+        "UserList",
+        "SQL parametrizado",
+        "Lógica",
+        "Documentação",
+      ],
+      features: [
+        "Exercícios independentes e executáveis",
+        "Classes, composição e herança",
+        "Especialização de métodos",
+        "Criação e consulta de banco SQLite",
+        "Atualizações SQL parametrizadas",
+        "README por capítulo",
+      ],
+      architecture: [
+        "Enunciado",
+        "Contexto",
+        "Implementação",
+        "Demonstração",
+        "Documentação",
+      ],
+      github: "https://github.com/auhauhbr/intro-programacao-python-exercicios",
+      readme: {
+        source: "/readmes/python-exercicios.md",
+        imageBase:
+          "https://raw.githubusercontent.com/auhauhbr/intro-programacao-python-exercicios/main/",
+        linkBase:
+          "https://github.com/auhauhbr/intro-programacao-python-exercicios/blob/main/",
+      },
+      category: "Estudos Técnicos",
+      featured: false,
+      status: "Estudo contínuo",
+    },
+  ] satisfies Project[],
 
-  // ----------------------------------------------------------
-  // Experience
-  // ----------------------------------------------------------
-  experience: [
-    {
-      company: "Stripe",
-      role: "Senior Full Stack Engineer",
-      period: "2022 — Present",
-      location: "San Francisco, CA",
-      description:
-        "Led development of merchant-facing dashboard features used by 500K+ businesses. Improved page load times by 40% through code splitting and caching strategies. Mentored 3 junior engineers and drove adoption of TypeScript across the team.",
-      tech: ["React", "TypeScript", "Ruby on Rails", "PostgreSQL"],
-    },
-    {
-      company: "Vercel",
-      role: "Frontend Engineer",
-      period: "2020 — 2022",
-      location: "Remote",
-      description:
-        "Built and maintained core UI features for the Vercel deployment platform. Contributed to the Next.js open-source project with 12 merged PRs. Collaborated with design team to ship a complete UI overhaul improving user satisfaction scores by 25%.",
-      tech: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-    },
-    {
-      company: "Freelance",
-      role: "Full Stack Developer",
-      period: "2018 — 2020",
-      location: "San Francisco, CA",
-      description:
-        "Built custom web applications for 15+ clients across e-commerce, healthcare, and fintech sectors. Delivered projects on time and under budget, resulting in 90% client retention.",
-      tech: ["React", "Node.js", "MongoDB", "AWS"],
-    },
-  ],
-
-  // ----------------------------------------------------------
-  // Education
-  // ----------------------------------------------------------
   education: [
     {
-      institution: "University of California, Berkeley",
-      degree: "B.S. Computer Science",
-      period: "2014 — 2018",
+      institution: "Universidade Tiradentes (Unit)",
+      degree: "Análise e Desenvolvimento de Sistemas",
+      period: "ago/2025 — dez/2027",
+      status: "Em andamento · turno da noite",
       description:
-        "Graduated with honors. Specialized in software engineering and human-computer interaction. President of the Web Development Club.",
+        "Graduação tecnológica com aprofundamento em desenvolvimento de software, análise de requisitos, bancos de dados e construção de produtos digitais.",
+    },
+    {
+      institution: "ETE Advogado José David Gil Rodrigues",
+      degree: "Técnico em Desenvolvimento de Sistemas",
+      period: "2020 — 2023",
+      status: "Concluído",
+      description:
+        "Formação técnica que iniciou minha trajetória em programação, lógica, desenvolvimento de sistemas e organização de projetos.",
+    },
+  ] satisfies Education[],
+
+  certifications: [
+    {
+      group: "Fundação Bradesco",
+      items: [
+        "Projetos de Sistemas de TI — 100% (abr/2026)",
+        "Trilha Banco de Dados — 38h, 97%",
+        "Administrando Banco de Dados — 15h, 100%",
+        "Implementando Banco de Dados — 15h, 100%",
+        "Modelagem de Dados — 8h, 90%",
+        "Linguagem de Programação Python — Básico, 90%",
+      ],
+    },
+    {
+      group: "Udemy · Desenvolvimento",
+      items: [
+        "Python 3 do básico ao avançado",
+        "Java completo: POO e projetos",
+        "Java moderno, Spring Boot e IA",
+        "HTML, CSS, JavaScript, TypeScript, React e Next",
+        "Desenvolvimento Web com projetos",
+        "Banco de Dados SQL e NoSQL",
+      ],
+    },
+    {
+      group: "Estudos complementares",
+      items: [
+        "Godot 4.6+ — RPG completo",
+        "Unity e C# — jogos 2D",
+        "Leitura contínua de documentação técnica em inglês",
+      ],
     },
   ],
 
-  // ----------------------------------------------------------
-  // Project filter categories
-  // ----------------------------------------------------------
-  categories: ["All", "Web", "Mobile", "UI", "Open Source"],
-} as const;
+  milestones: [
+    {
+      title: "AirVision: projeto finalizado e em produção",
+      date: "Junho de 2026",
+      description:
+        "Depois de concluir e documentar o AirVision no GitHub, evoluí o projeto para uma aplicação realmente pública: frontend React no GitHub Pages e API FastAPI no Render. A separação protege a chave da OpenAQ no servidor e disponibiliza endpoints para cidades, poluentes, séries históricas, médias móveis, anomalias, limites da OMS, heatmaps e exportação CSV.",
+      image: "/images/airvision-capa.png",
+      href: "https://www.linkedin.com/feed/update/urn:li:activity:7474601171165315072/",
+      linkLabel: "Ver publicação no LinkedIn",
+    },
+    {
+      title: "Coday 2026.1 — membro destaque",
+      date: "16 de junho de 2026",
+      description:
+        "Apresentei o Trilum Conecta no Porto Digital após um ciclo de desenvolvimento entre março e junho. O reconhecimento como membro destaque marcou minha evolução em produto, comunicação e trabalho em equipe.",
+      image: "/images/trilum-coday.jpg",
+      href: "https://www.linkedin.com/posts/jefferson-tadeu-dos-santos-0ab133380_coday2026-portodigital-residenciatecnologica-ugcPost-7472854239489331200-GSap/",
+      linkLabel: "Ver relato no LinkedIn",
+    },
+    {
+      title: "Nexo Kanban publicado",
+      date: "Junho de 2026",
+      description:
+        "Compartilhei a publicação da primeira aplicação full stack do portfólio com autenticação, banco relacional, comunicação em tempo real, testes, Docker, CI e deploy em serviços separados.",
+      image: "/images/nexo-preview.png",
+      href: "https://www.linkedin.com/posts/jefferson-tadeu-dos-santos-0ab133380_react-typescript-nodejs-ugcPost-7471378526131281920-eclW/",
+      linkLabel: "Ver publicação no LinkedIn",
+    },
+  ],
 
-export type Project = typeof portfolio.projects[number];
-export type Experience = typeof portfolio.experience[number];
-export type Education = typeof portfolio.education[number];
+  categories: [
+    "Todos",
+    "Backend",
+    "Full Stack",
+    "Automação / Dados",
+    "Produto Web",
+    "Desktop / Ferramentas",
+    "Estudos Técnicos",
+  ],
+} as const;

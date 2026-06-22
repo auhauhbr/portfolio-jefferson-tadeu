@@ -71,8 +71,8 @@
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -96,6 +96,309 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.section-label {
+  margin-bottom: 0.5rem;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgb(2 132 199);
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+}
+
+.social-link,
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.social-link {
+  transition: color 160ms ease;
+}
+
+.social-link:hover {
+  color: rgb(125 211 252);
+}
+
+.text-link {
+  color: rgb(2 132 199);
+  font-size: 0.875rem;
+  font-weight: 650;
+}
+
+.text-link:hover {
+  color: rgb(14 165 233);
+}
+
+.hero-grid {
+  background-image:
+    radial-gradient(circle at 78% 30%, rgb(14 165 233 / 0.12), transparent 25%),
+    linear-gradient(rgb(56 189 248 / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(56 189 248 / 0.035) 1px, transparent 1px);
+  background-size: auto, 44px 44px, 44px 44px;
+}
+
+.project-code::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, transparent 20%, rgb(56 189 248 / 0.12), transparent 70%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 26px,
+      rgb(148 163 184 / 0.06) 27px
+    );
+}
+
+.gallery-arrow {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  display: flex;
+  height: 2.5rem;
+  width: 2.5rem;
+  transform: translateY(-50%);
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(255 255 255 / 0.18);
+  border-radius: 999px;
+  background: rgb(6 19 38 / 0.82);
+  color: white;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.gallery-arrow:hover {
+  border-color: rgb(125 211 252 / 0.7);
+  background: rgb(3 105 161 / 0.9);
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 650;
+}
+
+.detail-button {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-width: 1px;
+  border-radius: 0.5rem;
+  padding: 0.65rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 650;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.github-readme {
+  color: rgb(51 65 85);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.dark .github-readme {
+  color: rgb(203 213 225);
+}
+
+.github-readme > :first-child {
+  margin-top: 0;
+}
+
+.github-readme > :last-child {
+  margin-bottom: 0;
+}
+
+.github-readme h1,
+.github-readme h2,
+.github-readme h3 {
+  scroll-margin-top: 6rem;
+  color: rgb(15 23 42);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.dark .github-readme h1,
+.dark .github-readme h2,
+.dark .github-readme h3 {
+  color: white;
+}
+
+.github-readme h1 {
+  margin: 0 0 1rem;
+  border-bottom: 1px solid rgb(226 232 240);
+  padding-bottom: 0.65rem;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+}
+
+.github-readme h2 {
+  margin: 2.5rem 0 1rem;
+  border-bottom: 1px solid rgb(226 232 240);
+  padding-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.github-readme h3 {
+  margin: 1.8rem 0 0.75rem;
+  font-size: 1.15rem;
+}
+
+.dark .github-readme h1,
+.dark .github-readme h2 {
+  border-color: rgb(255 255 255 / 0.1);
+}
+
+.github-readme p,
+.github-readme ul,
+.github-readme ol,
+.github-readme pre,
+.github-readme table,
+.github-readme .readme-image {
+  margin: 1rem 0;
+}
+
+.github-readme ul,
+.github-readme ol {
+  padding-left: 1.6rem;
+}
+
+.github-readme ul {
+  list-style: disc;
+}
+
+.github-readme ol {
+  list-style: decimal;
+}
+
+.github-readme li + li {
+  margin-top: 0.3rem;
+}
+
+.github-readme a {
+  color: rgb(2 132 199);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.dark .github-readme a {
+  color: rgb(125 211 252);
+}
+
+.github-readme strong {
+  color: rgb(15 23 42);
+  font-weight: 650;
+}
+
+.dark .github-readme strong {
+  color: white;
+}
+
+.github-readme code {
+  border-radius: 0.3rem;
+  background: rgb(241 245 249);
+  padding: 0.15rem 0.35rem;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.86em;
+  color: rgb(15 23 42);
+}
+
+.dark .github-readme code {
+  background: rgb(255 255 255 / 0.08);
+  color: rgb(226 232 240);
+}
+
+.github-readme pre {
+  overflow-x: auto;
+  border: 1px solid rgb(226 232 240);
+  border-radius: 0.75rem;
+  background: rgb(15 23 42);
+  padding: 1rem;
+}
+
+.dark .github-readme pre {
+  border-color: rgb(255 255 255 / 0.1);
+  background: rgb(2 8 23);
+}
+
+.github-readme pre code {
+  background: transparent;
+  padding: 0;
+  color: rgb(226 232 240);
+  line-height: 1.65;
+}
+
+.github-readme table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.github-readme th,
+.github-readme td {
+  border: 1px solid rgb(203 213 225);
+  padding: 0.65rem 0.8rem;
+  text-align: left;
+}
+
+.github-readme th {
+  background: rgb(241 245 249);
+  color: rgb(15 23 42);
+  font-weight: 650;
+}
+
+.dark .github-readme th,
+.dark .github-readme td {
+  border-color: rgb(255 255 255 / 0.12);
+}
+
+.dark .github-readme th {
+  background: rgb(255 255 255 / 0.06);
+  color: white;
+}
+
+.readme-image {
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgb(226 232 240);
+  border-radius: 0.75rem;
+  background: rgb(248 250 252);
+}
+
+.dark .readme-image {
+  border-color: rgb(255 255 255 / 0.1);
+  background: rgb(2 8 23);
+}
+
+.readme-mermaid {
+  display: block;
+  min-width: max-content;
+}
+
+.readme-mermaid-title {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-geist-sans), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgb(125 211 252);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -107,15 +410,42 @@ html {
 /* ============================================================
    Tech stack infinite scroll animation
    ============================================================ */
-@keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+@keyframes tech-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
-.animate-scroll {
-  animation: scroll-left 30s linear infinite;
+.animate-tech-marquee {
+  animation: tech-marquee 95s linear infinite;
 }
 
-.animate-scroll:hover {
+.animate-tech-marquee:hover {
   animation-play-state: paused;
+}
+
+.tech-marquee::before,
+.tech-marquee::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  width: min(10vw, 8rem);
+  pointer-events: none;
+}
+
+.tech-marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, #08182c, transparent);
+}
+
+.tech-marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, #08182c, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-tech-marquee {
+    animation-play-state: paused;
+  }
 }
