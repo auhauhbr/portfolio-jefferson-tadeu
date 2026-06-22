@@ -1,5 +1,5 @@
 {
-  "name": "portfolio",
+  "name": "portfolio-jefferson-tadeu",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -22,6 +22,8 @@
     "next-themes": "^0.4.4",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
     "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {

@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local research material used to author portfolio content
+/.research/
+/tmp/
+/output/
