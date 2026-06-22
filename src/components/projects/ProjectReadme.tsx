@@ -117,7 +117,7 @@ export function ProjectReadme({
                       {children}
                     </a>
                   ),
-                  img: ({ src = "", alt = "" }) => {
+                  img: ({ src = "", alt = "", width, height }) => {
                     const resolvedSource = resolveUrl(
                       String(src),
                       imageBase,
@@ -125,15 +125,14 @@ export function ProjectReadme({
                     );
 
                     return (
-                      <span className="readme-image">
-                        {/* README images may come from repository raw URLs. */}
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={resolvedSource}
-                          alt={alt}
-                          className="h-auto w-full object-contain"
-                        />
-                      </span>
+                      /* README images may come from repository raw URLs. */
+                      /* eslint-disable-next-line @next/next/no-img-element */
+                      <img
+                        src={resolvedSource}
+                        alt={alt}
+                        width={width}
+                        height={height}
+                      />
                     );
                   },
                   code: ({ className, children, ...props }) => {

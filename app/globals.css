@@ -265,9 +265,31 @@ body {
 .github-readme ul,
 .github-readme ol,
 .github-readme pre,
-.github-readme table,
-.github-readme .readme-image {
+.github-readme table {
   margin: 1rem 0;
+}
+
+.github-readme [align="center"] {
+  text-align: center;
+}
+
+.github-readme [align="right"] {
+  text-align: right;
+}
+
+.github-readme img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  margin: 0.25rem 0;
+  vertical-align: middle;
+}
+
+.github-readme > p > img:only-child,
+.github-readme > a > img:only-child,
+.github-readme > img {
+  display: block;
+  margin: 1rem auto;
 }
 
 .github-readme ul,
@@ -368,19 +390,6 @@ body {
 .dark .github-readme th {
   background: rgb(255 255 255 / 0.06);
   color: white;
-}
-
-.readme-image {
-  display: block;
-  overflow: hidden;
-  border: 1px solid rgb(226 232 240);
-  border-radius: 0.75rem;
-  background: rgb(248 250 252);
-}
-
-.dark .readme-image {
-  border-color: rgb(255 255 255 / 0.1);
-  background: rgb(2 8 23);
 }
 
 .readme-mermaid {
