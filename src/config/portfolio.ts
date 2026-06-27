@@ -272,6 +272,101 @@ export const portfolio = {
 
   projects: [
     {
+      id: 10,
+      title: "Lumora",
+      summary:
+        "E-commerce fullstack com catálogo, carrinho, checkout, painel administrativo, pagamentos e deploy em produção.",
+      description:
+        "O Lumora é um e-commerce fullstack voltado para produtos de tecnologia. O projeto foi desenvolvido para praticar uma aplicação mais próxima de um cenário real, com catálogo, carrinho, checkout, autenticação, painel administrativo, estoque, pagamentos e deploy. O frontend em React/TypeScript consome rotas da API Laravel, enquanto o backend concentra regras de negócio de carrinho, pedidos, estoque, pagamento, webhook e permissões administrativas.",
+      contribution:
+        "Desenvolvi o backend Laravel com rotas, controladores, validações, serviços e regras de negócio, integrado ao frontend React com TypeScript e Vite. Implementei autenticação com Sanctum, consulta de CEP, Checkout Pro do Mercado Pago, webhook idempotente, baixa de estoque após aprovação, painel administrativo, GraphQL com Lighthouse e a estrutura de deploy no Railway. O produto está publicado e segue em evolução.",
+      images: [
+        {
+          src: "/images/projects/lumora/lumora-banner.jpg",
+          alt: "Identidade visual do e-commerce Lumora",
+          caption: "Lumora — e-commerce de tecnologia em evolução e publicado no Railway.",
+        },
+        {
+          src: "/images/projects/lumora/lumora-catalogo.png",
+          alt: "Catálogo do Lumora com filtros e produtos",
+          caption: "Catálogo responsivo com busca, filtros, paginação e alternância de visualização.",
+        },
+        {
+          src: "/images/projects/lumora/lumora-produto.png",
+          alt: "Página de detalhes de produto do Lumora",
+          caption: "Detalhes do produto com galeria, preço, estoque e ações de compra.",
+        },
+        {
+          src: "/images/projects/lumora/lumora-area-cliente.png",
+          alt: "Área do cliente do Lumora",
+          caption: "Área autenticada para acompanhar pedidos, endereços e dados do cliente.",
+        },
+      ],
+      tech: [
+        "Laravel",
+        "PHP",
+        "React",
+        "TypeScript",
+        "Vite",
+        "MySQL/MariaDB",
+        "Laravel Sanctum",
+        "GraphQL",
+        "Lighthouse",
+        "Mercado Pago",
+        "ViaCEP",
+        "Railway",
+        "API REST",
+        "Webhook",
+        "Queue database",
+        "CSS",
+      ],
+      features: [
+        "Catálogo com busca, filtros e paginação",
+        "Página de produto com preço, estoque e compra",
+        "Carrinho lateral conectado à API e checkout em etapas",
+        "Cadastro, login e autenticação com Laravel Sanctum",
+        "Consulta de CEP e preenchimento de endereço com ViaCEP",
+        "Criação e acompanhamento de pedidos",
+        "Mercado Pago Checkout Pro e webhook idempotente",
+        "Baixa de estoque somente após pagamento aprovado",
+        "Painel administrativo com dashboard",
+        "Gestão de produtos, marcas, categorias, pedidos e estoque",
+        "Endpoint GraphQL com Lighthouse",
+        "Deploy no Railway com MySQL/MariaDB e fila em banco",
+      ],
+      architecture: [
+        "Cliente React/Vite",
+        "API Laravel",
+        "MySQL/MariaDB",
+        "Mercado Pago",
+        "Webhook Laravel",
+        "Pedido + Estoque",
+      ],
+      github:
+        "https://github.com/auhauhbr/lumora-eccomerce-em-laravel-react",
+      live: "https://lumora-eccomerce-em-laravel-react-production.up.railway.app",
+      readme: {
+        source: "/readmes/lumora.md",
+        imageBase:
+          "https://raw.githubusercontent.com/auhauhbr/lumora-eccomerce-em-laravel-react/main/",
+        linkBase:
+          "https://github.com/auhauhbr/lumora-eccomerce-em-laravel-react/blob/main/",
+        imageMap: {
+          "public/imagens/marca/lumora-banner.jpg":
+            "/images/projects/lumora/lumora-banner.jpg",
+          "docs/screenshots/catalogo-usuario.png":
+            "/images/projects/lumora/lumora-catalogo.png",
+          "docs/screenshots/produto-detalhe.png":
+            "/images/projects/lumora/lumora-produto.png",
+          "docs/screenshots/perfil-cliente.png":
+            "/images/projects/lumora/lumora-area-cliente.png",
+        },
+      },
+      category: "Full Stack",
+      featured: true,
+      status: "Publicado · Em evolução",
+    },
+    {
       id: 1,
       title: "Orquestrador Assíncrono",
       summary: "API para distribuir e monitorar tarefas em segundo plano.",
@@ -876,101 +971,6 @@ export const portfolio = {
       category: "Produto Web",
       featured: false,
       status: "Publicado",
-    },
-    {
-      id: 10,
-      title: "Lumora",
-      summary:
-        "E-commerce fullstack com catálogo, carrinho, checkout, painel administrativo, pagamentos e deploy em produção.",
-      description:
-        "O Lumora é um e-commerce fullstack voltado para produtos de tecnologia. O projeto foi desenvolvido para praticar uma aplicação mais próxima de um cenário real, com catálogo, carrinho, checkout, autenticação, painel administrativo, estoque, pagamentos e deploy. O frontend em React/TypeScript consome rotas da API Laravel, enquanto o backend concentra regras de negócio de carrinho, pedidos, estoque, pagamento, webhook e permissões administrativas.",
-      contribution:
-        "Desenvolvi o backend Laravel com rotas, controladores, validações, serviços e regras de negócio, integrado ao frontend React com TypeScript e Vite. Implementei autenticação com Sanctum, consulta de CEP, Checkout Pro do Mercado Pago, webhook idempotente, baixa de estoque após aprovação, painel administrativo, GraphQL com Lighthouse e a estrutura de deploy no Railway. O produto está publicado e segue em evolução.",
-      images: [
-        {
-          src: "/images/projects/lumora/lumora-banner.jpg",
-          alt: "Identidade visual do e-commerce Lumora",
-          caption: "Lumora — e-commerce de tecnologia em evolução e publicado no Railway.",
-        },
-        {
-          src: "/images/projects/lumora/lumora-catalogo.png",
-          alt: "Catálogo do Lumora com filtros e produtos",
-          caption: "Catálogo responsivo com busca, filtros, paginação e alternância de visualização.",
-        },
-        {
-          src: "/images/projects/lumora/lumora-produto.png",
-          alt: "Página de detalhes de produto do Lumora",
-          caption: "Detalhes do produto com galeria, preço, estoque e ações de compra.",
-        },
-        {
-          src: "/images/projects/lumora/lumora-area-cliente.png",
-          alt: "Área do cliente do Lumora",
-          caption: "Área autenticada para acompanhar pedidos, endereços e dados do cliente.",
-        },
-      ],
-      tech: [
-        "Laravel",
-        "PHP",
-        "React",
-        "TypeScript",
-        "Vite",
-        "MySQL/MariaDB",
-        "Laravel Sanctum",
-        "GraphQL",
-        "Lighthouse",
-        "Mercado Pago",
-        "ViaCEP",
-        "Railway",
-        "API REST",
-        "Webhook",
-        "Queue database",
-        "CSS",
-      ],
-      features: [
-        "Catálogo com busca, filtros e paginação",
-        "Página de produto com preço, estoque e compra",
-        "Carrinho lateral conectado à API e checkout em etapas",
-        "Cadastro, login e autenticação com Laravel Sanctum",
-        "Consulta de CEP e preenchimento de endereço com ViaCEP",
-        "Criação e acompanhamento de pedidos",
-        "Mercado Pago Checkout Pro e webhook idempotente",
-        "Baixa de estoque somente após pagamento aprovado",
-        "Painel administrativo com dashboard",
-        "Gestão de produtos, marcas, categorias, pedidos e estoque",
-        "Endpoint GraphQL com Lighthouse",
-        "Deploy no Railway com MySQL/MariaDB e fila em banco",
-      ],
-      architecture: [
-        "Cliente React/Vite",
-        "API Laravel",
-        "MySQL/MariaDB",
-        "Mercado Pago",
-        "Webhook Laravel",
-        "Pedido + Estoque",
-      ],
-      github:
-        "https://github.com/auhauhbr/lumora-eccomerce-em-laravel-react",
-      live: "https://lumora-eccomerce-em-laravel-react-production.up.railway.app",
-      readme: {
-        source: "/readmes/lumora.md",
-        imageBase:
-          "https://raw.githubusercontent.com/auhauhbr/lumora-eccomerce-em-laravel-react/main/",
-        linkBase:
-          "https://github.com/auhauhbr/lumora-eccomerce-em-laravel-react/blob/main/",
-        imageMap: {
-          "public/imagens/marca/lumora-banner.jpg":
-            "/images/projects/lumora/lumora-banner.jpg",
-          "docs/screenshots/catalogo-usuario.png":
-            "/images/projects/lumora/lumora-catalogo.png",
-          "docs/screenshots/produto-detalhe.png":
-            "/images/projects/lumora/lumora-produto.png",
-          "docs/screenshots/perfil-cliente.png":
-            "/images/projects/lumora/lumora-area-cliente.png",
-        },
-      },
-      category: "Full Stack",
-      featured: true,
-      status: "Publicado · Em evolução",
     },
   ] satisfies Project[],
 
