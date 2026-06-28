@@ -20,7 +20,7 @@ from reportlab.platypus import (
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output" / "pdf" / "curriculo-jefferson-tadeu-1-pagina.pdf"
-PUBLIC = ROOT / "public" / "documents" / "curriculo-jefferson-tadeu.pdf"
+PUBLIC = ROOT / "public" / "documents" / "jefferson_curriculo_atualizado.pdf"
 
 NAVY = colors.HexColor("#07182C")
 BLUE = colors.HexColor("#087CBF")

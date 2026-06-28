@@ -46,7 +46,7 @@ export function Bio() {
               {
                 icon: Layers3,
                 title: "Amplitude",
-                text: "Full stack e dados",
+                text: "Full stack e integrações",
               },
               {
                 icon: Target,
@@ -70,6 +70,8 @@ export function Bio() {
             <Link
               href={portfolio.resume}
               target="_blank"
+              rel="noopener noreferrer"
+              download
               className="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-5 py-3 text-sm font-semibold hover:bg-sky-400"
             >
               <Download className="h-4 w-4" /> Baixar currículo

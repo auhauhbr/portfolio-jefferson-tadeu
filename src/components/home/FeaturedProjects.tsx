@@ -4,7 +4,20 @@ import { portfolio } from "@/src/config/portfolio";
 import { ProjectCard } from "@/src/components/projects/ProjectCard";
 
 export function FeaturedProjects() {
-  const featured = portfolio.projects.filter((project) => project.featured);
+  const priority = [
+    "Lumora",
+    "Orquestrador Assíncrono",
+    "Nexo Kanban",
+    "AirVision",
+    "Rastreador de Preços",
+    "Trilum Conecta",
+  ];
+  const featured = portfolio.projects
+    .filter((project) => project.featured)
+    .toSorted(
+      (first, second) =>
+        priority.indexOf(first.title) - priority.indexOf(second.title),
+    );
 
   return (
     <section className="bg-white py-24 text-slate-950 dark:bg-[#07101f] dark:text-white">

@@ -31,11 +31,7 @@ export function Hero() {
             em soluções claras.
           </h1>
           <p className="mt-7 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-            Desenvolvedor em formação, com foco em backend, automação com
-            Python, APIs REST, banco de dados e aplicações full stack. Tenho
-            projetos com FastAPI, Celery, Redis, PostgreSQL, Docker, React,
-            TypeScript e Node.js, buscando criar soluções práticas para
-            problemas reais.
+            {portfolio.shortBio}
           </p>
 
           <div className="mt-9 flex flex-col flex-wrap gap-3 sm:flex-row">
@@ -48,6 +44,8 @@ export function Hero() {
             <Link
               href={portfolio.resume}
               target="_blank"
+              rel="noopener noreferrer"
+              download
               className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-sky-300/35 px-6 text-sm font-semibold text-sky-100 transition hover:border-sky-300 hover:bg-white/5"
             >
               <Download className="h-4 w-4" /> Baixar currículo
@@ -61,10 +59,10 @@ export function Hero() {
           </div>
 
           <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-300">
-            <Link className="social-link" href={portfolio.github} target="_blank">
+            <Link className="social-link" href={portfolio.github} target="_blank" rel="noopener noreferrer">
               <Github className="h-4 w-4" /> GitHub
             </Link>
-            <Link className="social-link" href={portfolio.linkedin} target="_blank">
+            <Link className="social-link" href={portfolio.linkedin} target="_blank" rel="noopener noreferrer">
               <Linkedin className="h-4 w-4" /> LinkedIn
             </Link>
             <Link className="social-link" href={`mailto:${portfolio.email}`}>
@@ -74,6 +72,7 @@ export function Hero() {
               className="social-link"
               href={portfolio.whatsapp}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <MessageCircle className="h-4 w-4" /> WhatsApp
             </Link>
@@ -105,7 +104,7 @@ export function Hero() {
             </div>
           </div>
           <div className="absolute -bottom-5 -left-5 rounded-xl border border-sky-400/25 bg-[#0b1d35] px-4 py-3 font-mono text-xs text-sky-300 shadow-xl">
-            {"{ backend · dados · produto }"}
+            {"{ backend · full stack · automação · produto }"}
           </div>
         </motion.div>
       </div>

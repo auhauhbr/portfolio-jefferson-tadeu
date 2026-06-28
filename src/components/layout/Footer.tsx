@@ -45,6 +45,7 @@ function FooterLink({
     <Link
       href={href}
       target={href.startsWith("mailto:") ? undefined : "_blank"}
+      rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
       aria-label={label}
       className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-slate-300 hover:border-sky-400 hover:text-sky-300"
     >

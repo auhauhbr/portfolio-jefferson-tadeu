@@ -40,6 +40,7 @@ export function Experience() {
                 <Link
                   href={milestone.href}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="text-link mt-6"
                 >
                   {milestone.linkLabel} <ArrowUpRight className="h-4 w-4" />

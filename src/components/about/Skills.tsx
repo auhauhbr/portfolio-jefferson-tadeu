@@ -5,9 +5,9 @@ export function Skills() {
     "APIs REST e processamento assíncrono",
     "Aplicações full stack e tempo real",
     "Automação, coleta e tratamento de dados",
+    "Pagamentos, webhooks e integrações externas",
     "Modelagem e bancos relacionais",
-    "Docker, testes e integração contínua",
-    "Debugging, documentação e melhoria contínua",
+    "Docker, testes, documentação e deploy",
   ];
 
   return (
